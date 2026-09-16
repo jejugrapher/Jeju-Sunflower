@@ -63,6 +63,19 @@ body{
 #lightbox .lbcap{position:fixed; bottom:18px; left:50%; transform:translateX(-50%); color:#fff; font-weight:800; font-size:15px; background:rgba(0,0,0,.45); padding:6px 16px; border-radius:20px}
 @media (max-width:720px){ .toptab{font-size:14px; padding:9px 14px 11px} }
 
+/* ---- zones ---- */
+.zgrid{display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:18px; margin-top:30px}
+.zone{background:#fff; border:1.5px solid var(--kraft-l); border-radius:12px 5px 12px 5px; padding:16px 18px; box-shadow:2px 3px 0 rgba(90,60,20,.2)}
+.zone .zno{display:inline-block; background:var(--cray-green); color:#fff; font-weight:900; font-size:13px; padding:2px 10px; border-radius:8px 3px 8px 3px; transform:rotate(-2deg); margin-bottom:8px}
+.zone h4{margin:0 0 6px; font-size:17px; font-weight:900}
+.zone p{margin:0; font-size:13.5px; color:var(--ink-soft)}
+.zone.hl{background:color-mix(in srgb, var(--cray-yellow) 22%, #fff); border-color:var(--cray-yellow)}
+.zone.hl .zno{background:var(--cray-red)}
+/* ---- contest ---- */
+.contest{display:grid; grid-template-columns:1.1fr 1fr; gap:26px; margin-top:30px; align-items:start}
+.contest .rules .info-row .k{background:var(--cray-red)}
+.dueband{display:inline-block; background:var(--cray-red); color:#fff; font-weight:900; font-size:15px; padding:5px 16px; border-radius:14px 5px 14px 5px; transform:rotate(-2deg)}
+@media (max-width:720px){ .contest{grid-template-columns:1fr} }
 /* ---- request view ---- */
 #requestView .rcat{margin-top:44px}
 .req-list{display:flex; flex-direction:column; gap:10px; margin-top:18px}
@@ -278,18 +291,62 @@ footer b{font-size:16px; color:var(--ink)}
           <h3>환경 작품 전시</h3><p>사전 환경예술교육에서 태어난 업사이클링 작품과 환경 사생대회 그림전. 해설은 아이들 도슨트가 직접!</p><span class="tag" style="background:var(--cray-green)">아이들 도슨트 운영</span></article>
         <article class="cut prog rot-r1"><span class="tape tl"></span>
           <svg class="glyph" viewBox="0 0 70 70" aria-hidden="true"><path d="M26 54 V16 l30 -8 v38" fill="none" stroke="#2B2620" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="54" r="9" fill="#E4553B" stroke="#2B2620" stroke-width="2.5"/><circle cx="49" cy="46" r="9" fill="#3C7FC2" stroke="#2B2620" stroke-width="2.5"/><path d="M8 20 q4 -6 0 -12" stroke="#F7C443" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M62 30 q4 -6 0 -12" stroke="#F7C443" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
-          <h3>개회식 · 찬조공연</h3><p>환경사생대회 시상과 도전 골든벨, 그리고 아이들의 합창·오케스트라 찬조공연이 이어집니다.</p><span class="tag" style="background:var(--cray-red)">2부 17:30~18:30</span></article>
+          <h3>개회식 · 찬조공연</h3><p>사생대회 시상, 100명이 함께하는 <b>도전! 골든벨</b>(30문항), 구좌읍 어린이 합창단·오케스트라 무대까지. 사회 MC 정재봉.</p><span class="tag" style="background:var(--cray-red)">2부 17:30~18:30</span></article>
         <article class="cut prog rot-l2"><span class="tape tr"></span>
           <svg class="glyph" viewBox="0 0 70 70" aria-hidden="true"><path d="M8 30 l27 -18 l27 18z" fill="#F7C443" stroke="#2B2620" stroke-width="3" stroke-linejoin="round"/><rect x="14" y="30" width="42" height="26" fill="#FFF" stroke="#2B2620" stroke-width="3"/><path d="M14 30 h42" stroke="#E4553B" stroke-width="6"/><rect x="28" y="40" width="14" height="16" fill="#3C7FC2" stroke="#2B2620" stroke-width="2"/><path d="M6 60 h58" stroke="#5FA75B" stroke-width="4" stroke-linecap="round" stroke-dasharray="6 5"/></svg>
           <h3>체험부스 25곳</h3><p>자전거발전기로 쥬스·솜사탕 만들기, 커피박 키링, 바다유리 목걸이, 병뚜껑 팔찌, 해녀복 업사이클까지.</p><span class="tag" style="background:var(--cray-blue)">1부 13:00~17:30</span></article>
         <article class="cut prog rot-r2"><span class="tape tc"></span>
           <svg class="glyph" viewBox="0 0 70 70" aria-hidden="true"><rect x="8" y="14" width="54" height="36" rx="4" fill="#FFF" stroke="#2B2620" stroke-width="3"/><path d="M8 22 h54" stroke="#2B2620" stroke-width="2"/><path d="M30 28 l14 8 l-14 8z" fill="#E4553B" stroke="#2B2620" stroke-width="2" stroke-linejoin="round"/><path d="M22 58 h26" stroke="#2B2620" stroke-width="3" stroke-linecap="round"/><path d="M12 8 l4 6 M20 6 l0 7 M28 8 l-4 6" stroke="#F7C443" stroke-width="2.5" stroke-linecap="round"/></svg>
-          <h3>달빛 에코 시네마</h3><p>해가 진 야외광장에서 환경 다큐멘터리를 함께 봅니다. 초록별 환경 문화제의 마지막 순서.</p><span class="tag" style="background:#8a5fbf">3부 18:30~19:30</span></article>
+          <h3>달빛 에코 시네마</h3><p>해가 진 야외광장에서 제주 조간대 생태 다큐 <b>「깅이와 바당」</b>을 감독님과 함께 봅니다.</p><span class="tag" style="background:#8a5fbf">3부 18:30~19:30</span></article>
       </div>
       <div class="steps">
         <div class="cut step rot-l1"><span class="when">6~9월</span><p><b>환경예술교육 84회</b> — 지역아동센터 4곳과 학교 6곳에서 수업과 플로깅이 이어졌어요.</p></div>
         <div class="cut step rot-r1"><span class="when">9월</span><p><b>매주 홍보 영상 공개</b> — 아이들이 준비하는 과정을 SNS에서 만나요.</p></div>
         <div class="cut step rot-l1"><span class="when">10.10</span><p><b>행사 당일</b> — 13:00부터 19:30까지, 해녀박물관 야외광장에서 함께!</p></div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section" id="zones" style="padding-top:10px">
+    <div class="wrap reveal">
+      <span class="eyebrow">12 Zones</span>
+      <h2>축제 마당은 <span class="u">12개의 존</span>으로</h2>
+      <p class="lead">해녀박물관 야외광장 전체가 아이들의 놀이터가 됩니다. 부스 배치도는 확정되는 대로 이 자리에 올라갑니다.</p>
+      <div class="zgrid">
+        <div class="zone hl"><span class="zno">ZONE 1</span><h4>놀이존</h4><p>원형 잔디밭 — 폐목재 목공 체험, 종이박스 놀이, 그리고 <b>놀이카</b>(세상놀이연구소)가 차에 싣고 오는 친환경 놀이터!</p></div>
+        <div class="zone"><span class="zno">ZONE 2</span><h4>체험부스존</h4><p>학교·지역아동센터·환경단체·친환경기업의 체험 프로그램이 모입니다.</p></div>
+        <div class="zone"><span class="zno">ZONE 3</span><h4>휴식존</h4><p>숲속 그늘 — 폐현수막 만국기, 폐린넨 가랜드, 빈백과 돗자리.</p></div>
+        <div class="zone"><span class="zno">ZONE 4</span><h4>벼룩시장존</h4><p>구좌읍 모모장 농수산물 + 어린이 벼룩시장.</p></div>
+        <div class="zone"><span class="zno">ZONE 5</span><h4>전시존 A</h4><p>업사이클링 작품 — 페트병 플라워아트, 해양쓰레기 동물모형, 헌그림책 입체동화.</p></div>
+        <div class="zone"><span class="zno">ZONE 6</span><h4>전시존 B</h4><p>참여형 미술 — 20m 린넨 단체 그림, 3m 붓 대형 초상화, 병뚜껑 곱슬머리.</p></div>
+        <div class="zone"><span class="zno">ZONE 7</span><h4>식음료체험존</h4><p>비전력 커피·당근주스, 지역 농수산물 샐러드, 가공식품 핫도그.</p></div>
+        <div class="zone"><span class="zno">ZONE 8</span><h4>포토존</h4><p>식물·동물·해양생물 테마 포토존 3곳.</p></div>
+        <div class="zone"><span class="zno">ZONE 9</span><h4>공연무대존</h4><p>합창·오케스트라, 사생대회 시상, 골든벨, 에코 시네마.</p></div>
+        <div class="zone"><span class="zno">ZONE 10</span><h4>본부석존</h4><p>안내·QR·의료진 상주, 행사 준비 과정 아카이빙 전시.</p></div>
+        <div class="zone"><span class="zno">ZONE 11</span><h4>서명란존</h4><p>얼굴 패널 1,000개 — 내 얼굴을 그려 축제의 기록에 남겨요.</p></div>
+        <div class="zone"><span class="zno">ZONE 12</span><h4>입구존</h4><p>넝쿨과 채색 나무판으로 꾸민 개선문이 여러분을 맞이합니다.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contest" style="padding-top:10px">
+    <div class="wrap reveal">
+      <span class="eyebrow">Drawing Contest</span>
+      <h2>환경 사생대회 <span class="dueband">9/30(수) 18:00 마감</span></h2>
+      <div class="contest">
+        <div class="cut rules rot-l1" style="padding:26px 30px"><span class="tape tc"></span>
+          <h3 style="margin:0 0 14px; font-size:22px; font-weight:900">2026 구좌 아이들이 만든 초록별 환경놀이터 사생대회</h3>
+          <div class="info-row"><span class="k">주제</span><span>환경 관련 자율 주제</span></div>
+          <div class="info-row"><span class="k">규격</span><span>8절지 · 형식 자유</span></div>
+          <div class="info-row"><span class="k">마감</span><span><b>9월 30일(수) 저녁 6시</b></span></div>
+          <div class="info-row"><span class="k">제출</span><span>구좌읍 소재 지역아동센터 방문 제출</span></div>
+          <div class="info-row"><span class="k">시상</span><span>본 행사(10/10)에서 상장·부상 수여</span></div>
+          <div class="info-row"><span class="k">문의</span><span>010-5489-7984 박정근 · 010-9222-9082 박미란</span></div>
+        </div>
+        <div class="cut rot-r1" style="padding:24px 26px"><span class="tape tl"></span>
+          <p class="lead" style="margin:0">수상작은 축제 당일 <b>공연 무대에서 시상</b>하고, 출품작은 <b>전시존에 리사이클링 작품과 함께 전시</b>됩니다. 우리 동네 바다와 밭, 오름을 그려 주세요 — 여러분의 그림이 축제의 얼굴이 됩니다.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -307,6 +364,14 @@ footer b{font-size:16px; color:var(--ink)}
         <figure class="cut vcard rot-r1" style="padding:12px"><span class="tape tl"></span>
           <div class="frame r916" id="yt-shorts"><div class="ph"><span class="play"><svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span><b>홍보 쇼츠</b><small>유튜브 업로드 후 자동으로 표시됩니다</small></div></div>
           <figcaption>홍보 쇼츠 · 후렴 편 (0:31)<br><a class="ytlink" id="yt-shorts-link" href="#" target="_blank" rel="noopener" hidden>유튜브에서 보기 →</a></figcaption>
+        </figure>
+        <figure class="cut vcard rot-l1" style="padding:12px" id="card-sketch2"><span class="tape tc"></span>
+          <div class="frame r169" id="yt-sketch2"><div class="ph"><span class="play"><svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span><b>여름 준비 스케치</b><small>유튜브 업로드 후 자동으로 표시됩니다</small></div></div>
+          <figcaption>여름 준비 스케치 · 합창단과 아이들 (1:50)<br><a class="ytlink" id="yt-sketch2-link" href="#" target="_blank" rel="noopener" hidden>유튜브에서 보기 →</a></figcaption>
+        </figure>
+        <figure class="cut vcard rot-r1" style="padding:12px" id="card-shorts2"><span class="tape tr"></span>
+          <div class="frame r916" id="yt-shorts2"><div class="ph"><span class="play"><svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span><b>쇼츠 · 아이들이 만드는 중</b><small>유튜브 업로드 후 자동으로 표시됩니다</small></div></div>
+          <figcaption>쇼츠 · 아이들이 만드는 중 (0:36)<br><a class="ytlink" id="yt-shorts2-link" href="#" target="_blank" rel="noopener" hidden>유튜브에서 보기 →</a></figcaption>
         </figure>
       </div>
     </div>
@@ -338,17 +403,18 @@ footer b{font-size:16px; color:var(--ink)}
       <div class="cut ticket rot-l1"><span class="tape tl"></span><span class="tape br"></span>
         <div class="main">
           <h3>초대장</h3>
-          <div class="info-row"><span class="k">일시</span><span>2026년 10월 10일 (토) 13:00 ~ 19:30 · 우천 시 일정 별도 안내</span></div>
+          <div class="info-row"><span class="k">일시</span><span>2026년 10월 10일 (토) 13:00 ~ 19:30 · <b>우천 시 10/17(토)로 연기</b>(1~2일 전 결정)</span></div>
           <div class="info-row"><span class="k">장소</span><span>해녀박물관 야외광장 (제주시 구좌읍 하도리)</span></div>
           <div class="info-row"><span class="k">대상</span><span>어린이와 가족, 지역 주민 누구나</span></div>
           <div class="info-row"><span class="k">내용</span><span>1부 체험부스 25곳·작품 전시 / 2부 개회식·시상·찬조공연 / 3부 달빛 에코 시네마</span></div>
-          <div class="info-row"><span class="k">문의</span><span>해바라기지역아동센터 064-782-1742</span></div>
+          <div class="info-row"><span class="k">주최</span><span>구좌읍 · 주관 구좌읍지역아동센터연합회, 해바라기지역아동센터</span></div>
+          <div class="info-row"><span class="k">문의</span><span>010-5489-7984 초록별 환경놀이터 담당자 · 센터 064-782-1742</span></div>
         </div>
         <div class="stub">
           <small>참가비</small><span class="free">무료!</span>
           <small>사전 신청 시 체험 키트 우선 제공</small>
-          <a class="cta" href="#join" aria-label="참가 신청하기 (준비 중)">참가 신청하기</a>
-          <small style="opacity:.7">※ 신청 링크는 준비 중입니다</small>
+          <a class="cta" id="gformBtn" href="#join" aria-label="참가 신청하기">참가 신청하기</a>
+          <small style="opacity:.7" id="gformNote">※ 신청 폼 준비 중 — 곧 열립니다</small>
         </div>
       </div>
     </div>
@@ -471,116 +537,38 @@ footer b{font-size:16px; color:var(--ink)}
     <div class="wrap">
       <div class="cut torn rot-l1" style="padding:30px 30px">
         <span class="eyebrow">Request</span>
-        <h2>홍보영상·웹페이지 제작에 <span class="u">이 정보가 필요합니다</span></h2>
-        <p class="lead">제주그래퍼가 만드는 것은 <b>홍보영상, 행사 아카이브 영상, 이 안내 웹페이지, 포스터·현수막·티셔츠 디자인</b>입니다. 그런데 행사가 실제로 어떻게 진행되는지에 대한 정보가 아직 없어 <span class="marker">영상 구성과 페이지 안내 내용을 확정할 수 없는 상태</span>입니다.</p>
-        <p class="lead">항목이 많아 보이지만 <b>맨 아래 회신 양식의 빈칸만 채워 보내주시면 끝</b>납니다.</p>
+        <h2>남은 확인 사항만 <span class="u">모았습니다</span></h2>
+        <p class="lead">큐시트·상영작·리허설·우천 계획·사생대회 문구·현수막 문구는 <b>모두 잘 받았습니다. 감사합니다!</b> 이제 아래 항목만 오면 제작이 마무리됩니다.</p>
         <p class="lead" style="margin-bottom:0">회신: 카카오톡 또는 메일 · 문의 제주그래퍼 전현석 010-6778-9199</p>
       </div>
 
       <div class="rcat">
-        <span class="eyebrow">1 · 행사 진행 정보</span>
-        <h2>행사가 어떻게 진행되나요? <span class="due">9/19까지</span></h2>
-        <p class="lead">아카이브 영상의 구성, 당일 촬영 동선, 그리고 이 페이지의 프로그램 안내를 정확히 만들기 위한 정보입니다. 당일 촬영은 다시 찍을 수 없습니다. 초안·손글씨도 좋습니다.</p>
+        <span class="eyebrow">인쇄물 마무리용</span>
+        <h2>디자인에 들어갈 것 <span class="due">추석 전</span></h2>
         <div class="req-list">
-          <div class="req-item"><span class="box" aria-hidden="true"></span><div><b>①</b> <b>당일 큐시트(식순)</b> — 13:00~19:30 진행 순서표<span class="why">놓치면 안 되는 순간을 미리 배치하는 기준</span></div></div>
-          <div class="req-item"><span class="box" aria-hidden="true"></span><div><b>②</b> <b>2부 개회식</b> — 사회자, 내빈 소개 순서, 개회 퍼포먼스 방식</div></div>
-          <div class="req-item"><span class="box" aria-hidden="true"></span><div><b>③</b> <b>환경사생대회 시상</b> — 부문·인원·시상자<span class="why">수상 장면 촬영 준비</span></div></div>
-          <div class="req-item"><span class="box" aria-hidden="true"></span><div><b>④</b> <b>도전 골든벨</b> — 참가 인원·문제 수·진행자·소요 시간</div></div>
-          <div class="req-item"><span class="box" aria-hidden="true"></span><div><b>⑤</b> <b>찬조공연</b> — 팀명·곡목·순서·공연 시간<span class="why">팀별 카메라 배치 계획</span></div></div>
-          <div class="req-item"><span class="box" aria-hidden="true"></span><div><b>⑥</b> <b>달빛 에코 시네마</b> — 상영작·러닝타임·감독 참석 여부·점등 시각<span class="why">야간 촬영 세팅 전환 시점</span></div></div>
-          <div class="req-item"><span class="box" aria-hidden="true"></span><div><b>⑦</b> <b>부스 배치도(안)</b> — 무대·부스 25곳·전시·포토존 위치<span class="why">손그림 사진도 충분합니다</span></div></div>
-          <div class="req-item"><span class="box" aria-hidden="true"></span><div><b>⑧</b> 아이들 도슨트 운영 시간대와 장소</div></div>
-          <div class="req-item"><span class="box" aria-hidden="true"></span><div><b>⑨</b> 우천 시 계획 — 연기인지, 실내 전환인지<span class="why">웹페이지 안내 문구에도 반영</span></div></div>
-          <div class="req-item"><span class="box" aria-hidden="true"></span><div><b>⑩</b> 당일 리허설 시간<span class="why">촬영 위치·세팅 점검용</span></div></div>
+          <div class="req-item"><span class="box" aria-hidden="true"></span><div><b>초대장 인사말씀</b> 원고<span class="why">250×180 반접이 초대장 — 인사말이 와야 조판 완성</span></div></div>
+          <div class="req-item"><span class="box" aria-hidden="true"></span><div><b>주민참여예산 표기 방식</b> (팀장님 확인 중)<span class="why">포스터·현수막 하단 표기</span></div></div>
+          <div class="req-item"><span class="box" aria-hidden="true"></span><div>제주시청 마크 <b>파일</b> (없으면 제가 공식 홈페이지 CI 사용)</div></div>
+          <div class="req-item"><span class="box" aria-hidden="true"></span><div>홍보용 가로 현수막 <b>실측 크기</b><span class="why">개선문(2000×800)은 확정 — 가로 현수막만 남음</span></div></div>
         </div>
       </div>
 
       <div class="rcat">
-        <span class="eyebrow">2 · 남은 준비 일정</span>
-        <h2>남은 홍보영상의 촬영 소재입니다</h2>
-        <p class="lead">남은 홍보영상에 들어갈 장면들입니다. 일정이 잡히는 대로 알려주시면 찾아가 촬영하겠습니다.</p>
+        <span class="eyebrow">웹페이지·안내지용</span>
+        <h2>확정되는 대로</h2>
         <div class="req-list">
-          <div class="req-item"><span class="box" aria-hidden="true"></span><div>남은 환경예술교육 수업 일정 (센터·학교별)</div></div>
-          <div class="req-item"><span class="box" aria-hidden="true"></span><div>플로깅 진행 일정</div></div>
-          <div class="req-item"><span class="box" aria-hidden="true"></span><div>합창단·오케스트라 연습 일정<span class="why">공연곡 연습 장면이 홍보영상의 핵심 소재입니다</span></div></div>
-          <div class="req-item"><span class="box" aria-hidden="true"></span><div>부스 사전 시연 가능한 기관<span class="why">자전거발전기 쥬스·솜사탕이 영상 소재로 가장 좋습니다</span></div></div>
-          <div class="req-item"><span class="box" aria-hidden="true"></span><div>사생대회·업사이클링 작품이 모이는 시점과 장소<span class="why">작품 클로즈업 촬영</span></div></div>
-          <div class="req-item"><span class="box" aria-hidden="true"></span><div>인터뷰 협조 — 센터장님(또는 담당자님) 1인 + 아이들 2~3명<span class="why">교육 현장에서 각 1~2분이면 충분합니다</span></div></div>
-        </div>
-      </div>
-
-      <div class="rcat">
-        <span class="eyebrow">3 · 자료 전달</span>
-        <h2>파일로 보내주실 것</h2>
-        <div class="req-list">
-          <div class="req-item"><span class="box" aria-hidden="true"></span><div><b>부스 참여기관 최종 명단(25곳)</b>과 확정 부스명<span class="why">현재 13곳만 받은 상태 — 홍보영상·웹페이지의 체험 안내에 반영</span></div></div>
-          <div class="req-item"><span class="box" aria-hidden="true"></span><div><b>후원·주최 로고 파일</b> — 구좌읍 주민참여예산 표기 여부 포함<span class="why">포스터·현수막 디자인과 영상 엔딩에 자리를 비워둔 상태</span></div></div>
-          <div class="req-item"><span class="box" aria-hidden="true"></span><div>「밭길 따라 돌담 따라」 <b>공식 가사</b><span class="why">현재 영상 자막은 받아쓰기 기반이라 일부 단어 교정이 필요합니다</span></div></div>
-          <div class="req-item"><span class="box" aria-hidden="true"></span><div>어린이 합창단·오케스트라 기존 영상/유튜브 링크<span class="why">홍보영상 소재</span></div></div>
-          <div class="req-item"><span class="box" aria-hidden="true"></span><div>참가 신청 방법 확정 — 전화 / 구글폼 / QR<span class="why">이 페이지의 신청 버튼과 포스터 QR에 반영</span></div></div>
-        </div>
-      </div>
-
-      <div class="rcat">
-        <span class="eyebrow">4 · 디자인 확정</span>
-        <h2>디자인 파일을 만들기 위한 결정 <span class="due">9/12까지</span></h2>
-        <p class="lead">인쇄와 발주는 센터에서 진행하시고, 저는 확정된 값에 맞춰 <b>인쇄용 디자인 파일(PDF/AI)</b>을 전달드립니다. 파일 규격을 정하기 위해 아래만 알려주세요.</p>
-        <div class="req-list">
-          <div class="req-item"><span class="box" aria-hidden="true"></span><div><b>시안 선택</b> — 디자인 시안 탭에서 번호(D01~D15)로 알려주세요<span class="why">포스터 D01/D02 · 티셔츠 사양 D03/D04 · 키비주얼 D13~D15</span></div></div>
-          <div class="req-item"><span class="box" aria-hidden="true"></span><div>포스터 규격 — A2 / A3 / B2 중<span class="why">인쇄용 파일 크기 기준</span></div></div>
-          <div class="req-item"><span class="box" aria-hidden="true"></span><div>현수막 실측 가로×세로(mm)<span class="why">설치 업체나 현장 실측값 기준으로 파일을 만듭니다</span></div></div>
-          <div class="req-item"><span class="box" aria-hidden="true"></span><div>티셔츠 색상 가짓수 — 제안 4색 중 몇 가지로 확정할지<span class="why">확정 색상별로 인쇄용 디자인을 정리해 드립니다</span></div></div>
-          <div class="req-item"><span class="box" aria-hidden="true"></span><div>웹 배너 규격 — 센터 SNS·블로그용이 따로 필요하면 크기와 함께</div></div>
-        </div>
-        <button class="gotab" onclick="showView('design')">디자인 시안 탭에서 골라보기 →</button>
-      </div>
-
-      <div class="rcat">
-        <span class="eyebrow">5 · 일정 역산</span>
-        <h2>왜 이 날짜까지 필요한가요?</h2>
-        <p class="lead">제작물 전달 기준의 역산입니다. 회신이 늦어지면 전달일도 함께 밀립니다.</p>
-        <div class="cut rot-r1" style="padding:20px 26px">
-          <div class="timeline">
-            <div class="trow"><span class="twhen">~9/12 금</span><div>포스터 인쇄용 디자인 파일 전달 <span class="tneed">← 시안 번호 · 로고 · 규격</span></div></div>
-            <div class="trow"><span class="twhen">~9/19 금</span><div>현수막·티셔츠 디자인 파일 전달 <span class="tneed">← 실측 크기 · 색상 가짓수</span></div></div>
-            <div class="trow"><span class="twhen">9월 매주</span><div>홍보 숏폼 순차 업로드 <span class="tneed">← 부스 명단 · 추가 촬영 일정</span></div></div>
-            <div class="trow"><span class="twhen">~10/2 금</span><div>당일 촬영 준비 완료 <span class="tneed">← 큐시트 · 배치도 · 리허설</span></div></div>
-            <div class="trow"><span class="twhen">10/10 토</span><div><b>행사 당일 촬영</b></div></div>
-            <div class="trow" style="border-bottom:0"><span class="twhen">~10/24</span><div>행사 아카이브 영상 편집·검수</div></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="rcat">
-        <span class="eyebrow">6 · 회신 양식</span>
-        <h2>빈칸만 채워 보내주세요</h2>
-        <p class="lead">아래 버튼을 누르면 양식이 복사됩니다. 카톡에 붙여넣고 빈칸을 채워 보내주시면 됩니다.</p>
-        <div class="replybox">
-<pre id="replyform">[초록별 환경놀이터 — 회신]
-
-1. 큐시트: (첨부함 / 작성 중 — __월 __일까지 전달)
-2. 부스 배치도: (첨부함 / 미정 — 확정 시점: ____)
-3. 찬조공연 팀·곡목: ____________________
-4. 달빛 에코 시네마 상영작: ____________ (러닝타임 ___분, 감독 참석 O/X)
-5. 우천 시: (연기 / 실내 전환: 장소 ______)
-6. 남은 교육·플로깅 일정: ____________________
-7. 리허설: __월 __일 __시
-8. 인터뷰 협조: (가능 / 불가) — 대상: ____________
-9. 부스 최종 명단: (첨부함 / __월 __일까지)
-10. 로고 파일: (첨부함 / 주민참여예산 표기: O/X)
-11. 공식 가사: (첨부함)
-12. 참가 신청 방법: (전화 / 구글폼 / QR / 기타: ____)
-13. 시안 선택: 포스터 D__ · 티셔츠 D__ · 키비주얼 D__
-14. 포스터 규격: (A2 / A3 / B2)
-15. 현수막 실측: ____ × ____ mm
-16. 티셔츠 색상: 제안 4색 중 ____가지 (색: ____________)</pre>
-          <button class="copybtn" id="copybtn" onclick="copyReply()">회신 양식 복사하기</button>
+          <div class="req-item"><span class="box" aria-hidden="true"></span><div><b>부스 배치도(조감도)</b><span class="why">웹페이지 지도 + 당일 안내지(팜플렛)의 핵심</span></div></div>
+          <div class="req-item"><span class="box" aria-hidden="true"></span><div>부스 최종 명단 (9/30까지 입점 마감분)</div></div>
+          <div class="req-item"><span class="box" aria-hidden="true"></span><div>내빈 명단·시상자 명단 (10/5 이후)</div></div>
+          <div class="req-item"><span class="box" aria-hidden="true"></span><div>오케스트라 곡목</div></div>
+          <div class="req-item"><span class="box" aria-hidden="true"></span><div>놀이카 영상 (메일 whipia@naver.com — 수신 확인 중)</div></div>
+          <div class="req-item"><span class="box" aria-hidden="true"></span><div>전시 연출 샘플 이미지 (진지한 작가 컬러본)</div></div>
         </div>
       </div>
 
       <div class="rcat">
         <div class="cut rot-l1" style="padding:20px 26px">
-          <p class="lead" style="margin:0"><b>촬영 관련 참고 (회신 불필요)</b> — 외부 방문 아동의 초상권 보호를 위해, 당일 행사장 입구에 촬영 안내문 부착을 부탁드립니다(문구는 협의). 클로즈업은 동의가 완료된 센터 아동 위주로 촬영합니다. 드론은 인파 위 비행 없이 행사 전·해안 방향 부감만 계획하고 있으며, 당일 무대 근처 촬영 장비용 콘센트 1구 사용 가능 여부만 알려주시면 됩니다.</p>
+          <p class="lead" style="margin:0"><b>진행 중인 제작</b> — 포스터(메인·사생대회)와 현수막 2종은 <b>아이들 그림체(당근 그림책 스타일)</b>로 새로 만들고 있습니다. 시안이 나오는 대로 디자인 시안 탭에 올리겠습니다. 참가 신청 구글폼도 준비 중입니다.</p>
         </div>
       </div>
     </div>
@@ -627,23 +615,38 @@ function closeLB(){
 document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeLB(); });
 
 /* ===== 유튜브 링크 설정: 업로드 후 아래 두 값에 링크(또는 영상 ID)를 넣으세요 ===== */
+/* ===== 참가 신청 구글폼: 링크가 나오면 아래에 넣으세요 ===== */
+var GFORM_URL = "";   /* 예: "https://forms.gle/xxxxxxxx" */
 var YT_LINKS = {
-  sketch: "https://youtu.be/TjM6AztIhOg",          /* 활동 스케치 16:9 */
-  shorts: "https://youtube.com/shorts/KDESOfMIQSU?feature=share"  /* 홍보 쇼츠 9:16 */
+  sketch:  "https://youtu.be/TjM6AztIhOg",   /* 활동 스케치 · 샘플 편 16:9 */
+  shorts:  "https://youtube.com/shorts/KDESOfMIQSU?feature=share",  /* 홍보 쇼츠 · 후렴 편 9:16 */
+  sketch2: "https://youtu.be/SXNGGDr3BF8",              /* 여름 준비 스케치 16:9 (1:50) */
+  shorts2: "https://youtube.com/shorts/5Sv0ph42FjE"     /* 쇼츠 · 아이들이 만드는 중 9:16 (0:36) */
 };
 (function(){
   function ytId(u){ if(!u) return ""; u=u.trim(); var m=u.match(/(?:youtu\.be\/|shorts\/|embed\/|[?&]v=)([A-Za-z0-9_-]{11})/); return m?m[1]:(/^[A-Za-z0-9_-]{11}$/.test(u)?u:""); }
-  function mount(key, frameId, linkId){
+  function mount(key, frameId, linkId, ttl){
     var id=ytId(YT_LINKS[key]); if(!id) return;
     var f=document.getElementById(frameId); f.innerHTML="";
     var ifr=document.createElement("iframe");
     ifr.src="https://www.youtube-nocookie.com/embed/"+id+"?rel=0&modestbranding=1&playsinline=1";
-    ifr.title=key==="sketch"?"초록별 환경놀이터 활동 스케치 영상":"초록별 환경놀이터 홍보 쇼츠";
+    ifr.title=ttl||"초록별 환경놀이터 영상";
     ifr.allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
     ifr.allowFullscreen=true; ifr.loading="lazy"; f.appendChild(ifr);
     var a=document.getElementById(linkId); a.href=(key==="shorts"?"https://youtube.com/shorts/":"https://youtu.be/")+id; a.hidden=false;
   }
-  mount("sketch","yt-sketch","yt-sketch-link"); mount("shorts","yt-shorts","yt-shorts-link");
+  mount("sketch","yt-sketch","yt-sketch-link","초록별 환경놀이터 활동 스케치 영상");
+  mount("shorts","yt-shorts","yt-shorts-link","초록별 환경놀이터 홍보 쇼츠");
+  mount("sketch2","yt-sketch2","yt-sketch2-link","초록별 환경놀이터 여름 준비 스케치");
+  mount("shorts2","yt-shorts2","yt-shorts2-link","초록별 환경놀이터 쇼츠 · 아이들이 만드는 중");
+  var sk=YT_LINKS.shorts2||YT_LINKS.sketch2;   /* 신규 영상 없으면 신규 카드 숨김 */
+  if(!ytId(YT_LINKS.sketch2)) document.getElementById("card-sketch2").hidden=true;
+  if(!ytId(YT_LINKS.shorts2)) document.getElementById("card-shorts2").hidden=true;
+  if(GFORM_URL){
+    var b=document.getElementById("gformBtn");
+    b.href=GFORM_URL; b.target="_blank"; b.rel="noopener";
+    var nt=document.getElementById("gformNote"); if(nt) nt.textContent="※ 이름은 선택 입력 — 부담 없이 신청하세요";
+  }
 })();
 (function(){
   var target = new Date(2026, 9, 10), today = new Date(); today.setHours(0,0,0,0);
