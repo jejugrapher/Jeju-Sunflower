@@ -8,7 +8,15 @@
 <meta property="og:title" content="구좌 아이들이 만든 초록별 환경놀이터 · 10월 10일(토) 해녀박물관">
 <meta property="og:description" content="우리가 직접 준비한 환경 축제에 놀러 오세요! 체험부스 25곳 · 작품 전시 · 에코 시네마 · 골든벨 · 축하공연">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://i.ytimg.com/vi/SXNGGDr3BF8/maxresdefault.jpg">
+<meta property="og:url" content="https://jejugrapher.github.io/Jeju-Sunflower/">
+<meta property="og:image" content="https://jejugrapher.github.io/Jeju-Sunflower/img/og_card.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="구좌 아이들이 만든 초록별 환경놀이터 · 10월 10일(토)">
+<meta name="twitter:description" content="우리가 직접 준비한 환경 축제에 놀러 오세요! 제주해녀박물관 야외광장 · 오후 1시~7시">
+<meta name="twitter:image" content="https://jejugrapher.github.io/Jeju-Sunflower/img/og_card.jpg">
+<link rel="canonical" href="https://jejugrapher.github.io/Jeju-Sunflower/">
 <meta name="theme-color" content="#FDF6E9">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,6 +54,7 @@ nav.chips a{flex:0 0 auto;text-decoration:none;font-family:"Gamja Flower",sans-s
 nav.chips a:nth-child(2){--c:var(--orange)} nav.chips a:nth-child(3){--c:var(--blue)}
 nav.chips a:nth-child(4){--c:var(--pink)} nav.chips a:nth-child(5){--c:var(--brown)}
 nav.chips a:nth-child(6){--c:var(--green)} nav.chips a:nth-child(7){--c:var(--orange)}
+nav.chips a:nth-child(8){--c:var(--blue)} nav.chips a:nth-child(9){--c:var(--pink)}
 
 /* ── 히어로 */
 .hero{position:relative;padding:78px 0 0;overflow:hidden}
@@ -199,8 +208,73 @@ footer .by{font-size:16px;color:var(--soft);margin-top:12px}
 /* ── 모바일 하단 바 */
 .bar{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;gap:8px;justify-content:center;
   padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(253,246,233,.96);border-top:3px dashed rgba(107,74,43,.2)}
-.bar .btn{font-size:20px;padding:8px 16px 6px}
+.bar .btn{font-size:18px;padding:8px 12px 6px;white-space:nowrap;flex:0 1 auto;border:0;cursor:pointer;line-height:1.1}
+.bar{gap:6px;flex-wrap:nowrap}
 @media(min-width:900px){.bar{display:none} footer{padding-bottom:30px}}
+
+
+/* ── 그림지도 */
+.mapscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:14px;box-shadow:0 8px 20px rgba(80,50,20,.18)}
+.mapbox{position:relative;border-radius:14px;overflow:hidden;background:#fff;min-width:640px}
+@media(min-width:680px){.mapbox{min-width:0}}
+.swipe{display:none;text-align:center;font-size:17px;color:var(--soft);margin:0 0 6px}
+@media(max-width:679px){.swipe{display:block}}
+.mapbox img.base{width:100%;height:auto;display:block}
+.pin{position:absolute;transform:translate(-50%,-50%);display:flex;align-items:center;gap:4px;border:0;cursor:pointer;
+  font-family:"Gamja Flower";font-size:clamp(15px,2.2vw,21px);line-height:1;color:var(--ink);background:#fff;
+  padding:4px 9px 3px 5px;border-radius:16px 12px 18px 11px;box-shadow:0 2px 0 rgba(0,0,0,.18);white-space:nowrap}
+.pin::before{content:"";position:absolute;inset:0;border:2.5px solid var(--c);border-radius:inherit;filter:url(#wobble)}
+.pin i{font-style:normal;font-size:1.15em}
+.pin:hover,.pin:focus-visible{transform:translate(-50%,-50%) scale(1.08);outline:none}
+.pin.flat{background:rgba(255,255,255,.78);cursor:default;box-shadow:none;font-size:clamp(13px,1.8vw,17px);color:var(--soft)}
+.pin.flat::before{border-style:dashed}
+.pin.hint{animation:bob 2.4s ease-in-out infinite}
+@keyframes bob{0%,100%{margin-top:0}50%{margin-top:-4px}}
+.mapnote{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:17px;color:var(--soft);margin:8px 2px 0}
+.zones{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+@media(min-width:620px){.zones{grid-template-columns:repeat(5,1fr)}}
+.zbtn{position:relative;border:0;background:var(--paper2);font-family:"Gamja Flower";font-size:20px;color:var(--c);padding:7px 6px 5px;
+  border-radius:20px 14px 22px 16px;cursor:pointer}
+.zbtn::before{content:"";position:absolute;inset:0;border:3px solid var(--c);border-radius:inherit;filter:url(#wobble)}
+.zbtn i{display:block;font-style:normal;font-size:22px}
+dialog.zd{border:0;padding:0;background:transparent;width:min(560px,94vw);max-height:88vh}
+dialog.zd::backdrop{background:rgba(40,28,18,.55)}
+dialog.zd .in{position:relative;background:var(--paper);border-radius:28px 22px 30px 20px;padding:20px 18px 16px;max-height:86vh;overflow:auto}
+dialog.zd .in::before{content:"";position:absolute;inset:0;border:4px solid var(--c);border-radius:inherit;filter:url(#wobble);pointer-events:none}
+dialog.zd h3{margin:0;font-family:"Gamja Flower";font-weight:400;font-size:32px;color:var(--c)}
+dialog.zd .when{display:inline-block;margin:4px 0 8px;font-size:17px;background:var(--c);color:#fff;padding:1px 10px;border-radius:10px 13px 9px 12px}
+dialog.zd p{margin:6px 0;font-size:20px}
+dialog.zd ul{margin:6px 0;padding-left:0;list-style:none}
+dialog.zd li{margin:4px 0;font-size:19.5px}
+dialog.zd li::before{content:"✿ ";color:var(--c)}
+.booths{display:grid;gap:10px;margin:10px 0}
+.booth{display:grid;grid-template-columns:92px 1fr;gap:10px;align-items:center;background:#fff;border-radius:14px;padding:6px}
+.booth img{width:92px;height:70px;object-fit:cover;border-radius:10px;background:#f3eee3}
+.booth b{display:block;font-family:"Gamja Flower";font-weight:400;font-size:21px;line-height:1.2}
+.booth span{font-size:16.5px;color:var(--soft)}
+.booth .no{display:inline-block;min-width:26px;text-align:center;font-family:"Gamja Flower";color:#fff;background:var(--c);border-radius:50%;margin-right:4px;font-size:17px}
+.zd .src{font-size:15.5px;color:var(--soft);margin-top:8px}
+.zd .close{display:block;margin:12px auto 0;font-family:"Gamja Flower";font-size:22px;background:var(--c);color:#fff;border:0;border-radius:16px;padding:6px 26px}
+
+/* ── 공유 */
+.share .big{display:block;width:100%;max-width:420px;margin:0 auto 14px;font-size:27px;padding:12px 20px 10px;text-align:center;border:0;cursor:pointer}
+.sns{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:560px;margin:0 auto}
+@media(min-width:620px){.sns{grid-template-columns:repeat(6,1fr)}}
+.sns button,.sns a{font-family:"Gamja Flower";font-size:19px;border:0;cursor:pointer;text-decoration:none;text-align:center;
+  padding:10px 4px 8px;border-radius:18px 14px 20px 12px;color:#fff;background:var(--c)}
+.sns i{display:block;font-style:normal;font-size:24px;line-height:1.1}
+.insta{margin:20px auto 0;max-width:620px;padding:16px}
+.insta h3{margin:0 0 6px;font-family:"Gamja Flower";font-weight:400;font-size:26px;color:var(--c);text-align:center}
+.insta .row{display:flex;gap:12px;justify-content:center;align-items:flex-end;flex-wrap:wrap}
+.insta figure{margin:0;text-align:center}
+.insta figure img{height:190px;width:auto;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,.14)}
+.insta figure .btn{margin-top:8px;font-size:19px;padding:6px 14px 4px}
+.cal{display:block;text-align:center;margin:18px auto 0}
+.vshare{display:block;margin:8px auto 0;font-family:"Gamja Flower";font-size:19px;border:0;background:#fff;color:var(--orange);
+  border:2px solid var(--orange);border-radius:14px 10px 16px 11px;padding:3px 14px 2px;cursor:pointer}
+.toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%) translateY(20px);opacity:0;transition:.25s;z-index:60;
+  background:var(--ink);color:#fff;font-family:"Gamja Flower";font-size:21px;padding:8px 18px 6px;border-radius:18px;pointer-events:none}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
 
 @media (prefers-reduced-motion: reduce){*{animation:none!important;scroll-behavior:auto!important}}
 </style>
@@ -233,8 +307,8 @@ footer .by{font-size:16px;color:var(--soft);margin-top:12px}
 </svg>
 
 <nav class="chips" aria-label="바로가기"><div class="in">
-  <a href="#what">무엇을 해요?</a><a href="#time">시간표</a><a href="#who">누가 즐겨요?</a>
-  <a href="#bring">준비물</a><a href="#way">오시는 길</a><a href="#friends">그림 친구들</a><a href="#video">영상</a>
+  <a href="#what">무엇을 해요?</a><a href="#map">그림지도</a><a href="#time">시간표</a><a href="#who">누가 즐겨요?</a>
+  <a href="#bring">준비물</a><a href="#way">오시는 길</a><a href="#friends">그림 친구들</a><a href="#video">영상</a><a href="#share">공유하기</a>
 </div></nav>
 
 <!-- ═══ 히어로 -->
@@ -342,6 +416,22 @@ footer .by{font-size:16px;color:var(--soft);margin-top:12px}
       </article>
     </div>
     <p class="note">※ 부스와 체험 내용은 준비 상황에 따라 조금 바뀔 수 있어요. 부스 위치는 곧 알려 드릴게요!</p>
+  </div>
+</section>
+
+
+<!-- ═══ 행사장 그림지도 -->
+<section id="map" style="--c:var(--brown)">
+  <div class="wrap">
+    <h2 class="sec hand">행사장 그림지도<small>그림 속 이름표를 눌러 보세요!</small></h2>
+    <svg class="squig"><use href="#sq"/></svg>
+    <p class="swipe">← 지도를 옆으로 밀어 보세요 →</p>
+    <div class="mapscroll"><div class="mapbox">
+      <img class="base" src="img/map_base.webp" alt="초록별 환경놀이터 행사장 그림지도 — 해녀박물관 야외광장의 입구, 전시존, 체험존, 놀이존, 벼룩시장존, 미술체험존, 포토존, 공연무대존, 휴식존, 음식체험존" width="1672" height="941">
+      <div id="pins"></div>
+    </div></div>
+    <div class="mapnote"><span>🖍 행사장 그림 · 김지환</span><span>※ 부스 번호와 정확한 위치는 준비 중이에요</span></div>
+    <div class="zones" id="zlist"></div>
   </div>
 </section>
 
@@ -466,12 +556,41 @@ footer .by{font-size:16px;color:var(--soft);margin-top:12px}
     <svg class="squig"><use href="#sq"/></svg>
     <div class="vids">
       <div><div class="yt wide" data-id="SXNGGDr3BF8"><img src="https://i.ytimg.com/vi/SXNGGDr3BF8/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/SXNGGDr3BF8/hqdefault.jpg'" alt="영상: 초록별 환경놀이터 준비 스케치" loading="lazy"><div class="play"></div></div>
-        <p class="vcap">우리 동네 노래 「밭길 따라 돌담 따라」와 함께한 여름</p></div>
+        <p class="vcap">우리 동네 노래 「밭길 따라 돌담 따라」와 함께한 여름</p><button type="button" class="vshare" data-share="video" data-url="https://youtu.be/SXNGGDr3BF8" data-title="구좌 아이들이 준비한 초록별 환경놀이터 — 여름 준비 스케치">이 영상 공유하기</button></div>
       <div><div class="yt tall" data-id="5Sv0ph42FjE"><img src="https://i.ytimg.com/vi/5Sv0ph42FjE/oardefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/5Sv0ph42FjE/hqdefault.jpg'" alt="쇼츠: 아이들이 만드는 중" loading="lazy"><div class="play"></div></div>
-        <p class="vcap">버려진 골판지가 놀이터가 되기까지</p></div>
+        <p class="vcap">버려진 골판지가 놀이터가 되기까지</p><button type="button" class="vshare" data-share="video" data-url="https://youtube.com/shorts/5Sv0ph42FjE" data-title="버려진 골판지가 놀이터가 되기까지 — 초록별 환경놀이터">이 영상 공유하기</button></div>
     </div>
   </div>
 </section>
+
+<!-- ═══ 공유하기 -->
+<section id="share" class="share" style="--c:var(--pink)">
+  <div class="wrap">
+    <h2 class="sec hand">친구에게 알려 주세요!<small>함께 오면 더 즐거워요</small></h2>
+    <svg class="squig"><use href="#sq"/></svg>
+    <button type="button" class="btn big" style="--c:var(--pink)" data-share="page">📣 행사 소식 공유하기</button>
+    <div class="sns">
+      <button type="button" style="--c:#F2C018;color:#3A1D1D" data-sns="kakao"><i>💬</i>카카오톡</button>
+      <a style="--c:#1877F2" data-sns="facebook" target="_blank" rel="noopener"><i>f</i>페이스북</a>
+      <a style="--c:#111" data-sns="x" target="_blank" rel="noopener"><i>𝕏</i>엑스</a>
+      <a style="--c:#06C755" data-sns="band" target="_blank" rel="noopener"><i>B</i>밴드</a>
+      <button type="button" style="--c:#C13584" data-sns="insta"><i>📷</i>인스타그램</button>
+      <button type="button" style="--c:var(--brown)" data-sns="copy"><i>🔗</i>링크 복사</button>
+    </div>
+    <div class="card insta" id="instabox" style="--c:#C13584">
+      <h3>인스타그램에 올릴 그림</h3>
+      <p class="note" style="margin:0 0 10px">저장해서 피드나 스토리에 올려 주세요</p>
+      <div class="row">
+        <figure><img src="img/share_feed.jpg" alt="인스타그램 피드용 행사 안내 그림" loading="lazy" width="1080" height="1350">
+          <a class="btn" style="--c:#C13584" href="img/share_feed.jpg" download="초록별환경놀이터_피드.jpg" data-img="img/share_feed.jpg">피드용 받기</a></figure>
+        <figure><img src="img/share_story.jpg" alt="인스타그램 스토리용 행사 안내 그림" loading="lazy" width="1080" height="1920">
+          <a class="btn" style="--c:#C13584" href="img/share_story.jpg" download="초록별환경놀이터_스토리.jpg" data-img="img/share_story.jpg">스토리용 받기</a></figure>
+      </div>
+    </div>
+    <a class="btn cal" style="--c:var(--green);display:table" target="_blank" rel="noopener" id="calbtn">📅 내 달력에 적어 두기</a>
+  </div>
+</section>
+
 </main>
 
 <footer>
@@ -485,10 +604,14 @@ footer .by{font-size:16px;color:var(--soft);margin-top:12px}
 </footer>
 
 <div class="bar">
-  <a class="btn" href="#what" style="--c:var(--green)">무엇을 해요?</a>
-  <a class="btn" href="#way" style="--c:var(--blue)">📍 오시는 길</a>
+  <a class="btn" href="#what" style="--c:var(--green)">뭐 해요?</a>
+  <a class="btn" href="#map" style="--c:var(--brown)">🗺 지도</a>
+  <a class="btn" href="#way" style="--c:var(--blue)">📍 길</a>
+  <button type="button" class="btn" style="--c:var(--pink);border:0" data-share="page">📣 공유</button>
 </div>
 
+<dialog class="zd" id="zd"><div class="in" id="zdin"></div></dialog>
+<div class="toast" id="toast"></div>
 <dialog class="lb" id="lb"><img alt=""><button type="button">닫기</button></dialog>
 
 <script>
@@ -528,6 +651,149 @@ footer .by{font-size:16px;color:var(--soft);margin-top:12px}
     });
   });
   lb.addEventListener('click', function(){ lb.close(); });
+})();
+</script>
+
+<script>
+/* ───────── 행사장 그림지도 · 존 정보 (출처: 김지환 대표 조감도·부스 목록 9/18, 존별기획안, 9/17 큐시트) */
+var BOOTH_NOTE='9월 18일에 받은 부스 목록이에요. 참여 부스와 내용은 바뀔 수 있어요. 그림은 체험 예시예요.';
+var BOOTHS={
+ exp:[[1,'평대초 학부모회','바다유리 반지 만들기'],[2,'세화초 생태환경동아리','린넨염색 보자기가방 만들기'],
+      [3,'제주녹색구매지원센터','행운 뽑기 & 녹색소비 퀴즈!'],[4,'희망나래꿈터','플라스틱 병뚜껑 팔찌 만들기'],
+      [5,'지속가능환경교육센터','바다유리 목걸이 만들기'],[6,'구좌읍교육발전협의회','바다거북 손수건 만들기'],
+      [7,'제주별작업실','커피박 키링 만들기'],[8,'다시바다','해녀복 고래 키링 만들기'],
+      [9,'꽃샘공방','폐품활용 수경식물 만들기'],[10,'리어플라스틱','업사이클 바인더링 & 노트 만들기'],
+      [11,'함덕파란집','새활용나무 벽걸이화병 만들기'],[12,'삼춘네점빵','새활용단추 키링 만들기']],
+ food:[[13,'아시아기후변화교육센터','자전거 타고 주스 만들기'],[14,'지속가능환경교육센터','자전거 타고 솜사탕 만들기'],
+      [15,'소비자교육중앙회 구좌분회','분리수거하고 와플 만들기'],[16,'우리하도지역아동센터','물방울 실험 후 뻥튀기 얼굴 만들기'],
+      [17,'해바라기지역아동센터','감자빵·주스 받고 에코키링 만들기'],[18,'김녕행복한지역아동센터','환경퀴즈 풀고 샌드위치 만들기'],
+      [19,'종달지역아동센터','전통문양 도장 꿀떡 만들기']]
+};
+var ZONES=[
+ {id:'gate',name:'입구',icon:'🌸',c:'#E27BA7',x:73.9,y:75.0,when:'오후 1시부터',
+  text:'"환경놀이터" 꽃 아치를 지나 축제장으로 들어와요.',
+  list:['구좌 친구들이 크레파스로 그린 현수막이 반겨 줘요','채색 나무판에 오늘의 프로그램이 적혀 있어요']},
+ {id:'exhibit',name:'전시존',icon:'🖼',c:'#EE8424',x:60.5,y:55.5,when:'오후 1시 ~ 5시',
+  text:'길을 따라 아이들의 작품이 전시돼요. 어린이 도슨트가 직접 설명해 줘요!',
+  list:['업사이클링 작품 — 페트병 플라워아트, 해양쓰레기 동물모형, 헌 그림책 입체동화, 미니하우스 마을액자, 제주 입체조형 말','환경 사생대회 작품 전시']},
+ {id:'exp',name:'체험존',icon:'✂️',c:'#3E8E41',x:47.5,y:28.5,when:'오후 1시 ~ 5시',
+  text:'동그랗게 둘러선 부스에서 지구를 살리는 만들기를 해요.',booths:'exp'},
+ {id:'play',name:'놀이존',icon:'🪵',c:'#6B4A2B',x:40.0,y:38.5,when:'오후 1시 ~ 5시',
+  text:'잔디밭에서 신나게 놀아요!',
+  list:['버려진 나무로 톱질·망치질 목공 체험','종이상자로 탑 쌓기 · 집 짓기 · 벽 쌓기','놀이카']},
+ {id:'flea',name:'벼룩시장존',icon:'🧺',c:'#2F5DA8',x:34.3,y:13.5,when:'오후 1시 ~ 5시',
+  text:'아껴 쓰고 나눠 쓰는 장터예요.',
+  list:['구좌읍 모모장 농수산물','어린이 벼룩시장','지역 특산품 소개']},
+ {id:'art',name:'미술체험존',icon:'🎨',c:'#E27BA7',x:22.5,y:49.5,when:'오후 1시 ~ 5시',
+  text:'모두가 함께 그리는 참여형 미술 활동이에요.',
+  list:['20미터 긴 천에 다 같이 그림 그리기','3미터 붓으로 대형 초상화 그리기','병뚜껑 곱슬머리 만들기']},
+ {id:'photo',name:'포토존',icon:'📸',c:'#7EC4E2',x:42.0,y:62.0,when:'언제든지',
+  text:'환경을 주제로 한 포토존에서 추억을 남겨요.',
+  list:['식물 포토존','동물 포토존','해양생물 포토존']},
+ {id:'stage',name:'공연무대존',icon:'🎤',c:'#EE8424',x:15.5,y:78.0,when:'오후 3시 ~ 6시',
+  text:'메인무대에서 영화와 퀴즈, 기념식과 공연이 열려요.',
+  list:['오후 3시 ~ 4시 · 에코 시네마 「조수웅덩이 : 바다의 시작」 · 임형묵 감독과 만남','오후 4시 30분 · 도전! 환경 골든벨','오후 5시 ~ 6시 · 기념식 · 사생대회 시상 · 어린이 합창단 · 청소년 오케스트라']},
+ {id:'rest',name:'휴식존',icon:'⛺',c:'#3E8E41',x:52.0,y:70.5,when:'언제든지',
+  text:'나무 그늘 아래에서 쉬어 가요.',
+  list:['폐현수막으로 만든 만국기','폐린넨 가랜드와 작은 작품 전시','빈백과 돗자리']},
+ {id:'food',name:'음식체험존',icon:'🥪',c:'#6B4A2B',x:47.0,y:93.0,when:'오후 1시 ~ 5시',
+  text:'자전거를 굴려 주스를 만들고, 분리수거하고 와플도 만들어요!',booths:'food'}
+];
+var FLAT=[{name:'주차장',icon:'🚗',x:81,y:20},{name:'해녀박물관',icon:'🏛',x:91,y:83}];
+
+(function(){
+  var pins=document.getElementById('pins'), zl=document.getElementById('zlist');
+  var zd=document.getElementById('zd'), zin=document.getElementById('zdin');
+  function esc(t){return String(t).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function open(z){
+    var h='<h3>'+z.icon+' '+esc(z.name)+'</h3><span class="when" style="background:'+z.c+'">'+esc(z.when)+'</span><p>'+esc(z.text)+'</p>';
+    if(z.list) h+='<ul>'+z.list.map(function(t){return '<li>'+esc(t)+'</li>'}).join('')+'</ul>';
+    if(z.booths){
+      h+='<div class="booths">'+BOOTHS[z.booths].map(function(b){
+        var n=('0'+b[0]).slice(-2);
+        return '<div class="booth"><img src="img/booth/b'+n+'.webp" alt="'+esc(b[2])+' 예시 그림" loading="lazy"><div><b><span class="no" style="background:'+z.c+'">'+b[0]+'</span>'+esc(b[2])+'</b><span>'+esc(b[1])+'</span></div></div>';
+      }).join('')+'</div><p class="src">'+BOOTH_NOTE+'</p>';
+    }
+    h+='<button type="button" class="close" style="background:'+z.c+'">닫기</button>';
+    zin.innerHTML=h; zin.style.setProperty('--c',z.c);
+    zin.querySelector('.close').onclick=function(){zd.close()};
+    if(zd.showModal) zd.showModal();
+  }
+  zd.addEventListener('click',function(e){ if(e.target===zd) zd.close(); });
+  ZONES.forEach(function(z,i){
+    var b=document.createElement('button'); b.type='button'; b.className='pin'+(i===0?' hint':'');
+    b.style.left=z.x+'%'; b.style.top=z.y+'%'; b.style.setProperty('--c',z.c);
+    b.innerHTML='<i>'+z.icon+'</i>'+esc(z.name); b.setAttribute('aria-label',z.name+' 자세히 보기');
+    b.onclick=function(){open(z)}; pins.appendChild(b);
+    var c=document.createElement('button'); c.type='button'; c.className='zbtn'; c.style.setProperty('--c',z.c);
+    c.innerHTML='<i>'+z.icon+'</i>'+esc(z.name); c.onclick=function(){open(z)}; zl.appendChild(c);
+  });
+  FLAT.forEach(function(f){
+    var d=document.createElement('span'); d.className='pin flat'; d.style.left=f.x+'%'; d.style.top=f.y+'%';
+    d.style.setProperty('--c','#8A7461'); d.innerHTML='<i>'+f.icon+'</i>'+esc(f.name); pins.appendChild(d);
+  });
+})();
+
+/* ───────── SNS 공유 */
+(function(){
+  var URL_='https://jejugrapher.github.io/Jeju-Sunflower/';
+  var TITLE='구좌 아이들이 만든 초록별 환경놀이터';
+  var TEXT='🌍 10월 10일(토) 오후 1시, 제주해녀박물관 야외광장에서 구좌 아이들이 직접 준비한 「초록별 환경놀이터」가 열려요! 체험부스 · 작품 전시 · 에코 시네마 · 골든벨 · 축하공연 — 같이 놀러 가요!';
+  var toast=document.getElementById('toast'), tt;
+  function say(m){toast.textContent=m;toast.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('on')},2200)}
+  function copy(t){
+    if(navigator.clipboard&&window.isSecureContext){return navigator.clipboard.writeText(t).then(function(){return true},function(){return fb(t)})}
+    return Promise.resolve(fb(t));
+    function fb(x){var a=document.createElement('textarea');a.value=x;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();
+      var ok=false;try{ok=document.execCommand('copy')}catch(e){} a.remove();return ok}
+  }
+  function share(o,fallbackMsg){
+    if(navigator.share){ return navigator.share(o).catch(function(){}); }
+    copy((o.text?o.text+'\n':'')+o.url).then(function(ok){ say(ok?(fallbackMsg||'링크를 복사했어요! 붙여 넣어 알려 주세요'):'주소: '+o.url) });
+  }
+  document.querySelectorAll('[data-share="page"]').forEach(function(b){
+    b.addEventListener('click',function(){ share({title:TITLE,text:TEXT,url:URL_}) });
+  });
+  document.querySelectorAll('[data-share="video"]').forEach(function(b){
+    b.addEventListener('click',function(){ share({title:b.dataset.title,text:b.dataset.title+' 🎬',url:b.dataset.url},'영상 링크를 복사했어요!') });
+  });
+  var enc=encodeURIComponent;
+  var fbA=document.querySelector('[data-sns="facebook"]'), xA=document.querySelector('[data-sns="x"]'), bA=document.querySelector('[data-sns="band"]');
+  fbA.href='https://www.facebook.com/sharer/sharer.php?u='+enc(URL_);
+  xA.href='https://twitter.com/intent/tweet?text='+enc(TEXT)+'&url='+enc(URL_);
+  bA.href='https://band.us/plugin/share?body='+enc(TEXT+'\n'+URL_)+'&route='+enc(URL_);
+  document.querySelector('[data-sns="kakao"]').addEventListener('click',function(){
+    share({title:TITLE,text:TEXT,url:URL_},'링크를 복사했어요! 카카오톡 대화방에 붙여 넣어 주세요');
+  });
+  document.querySelector('[data-sns="copy"]').addEventListener('click',function(){
+    copy(URL_).then(function(ok){ say(ok?'링크를 복사했어요!':'주소: '+URL_) });
+  });
+  // 인스타그램: 휴대폰에선 그림 파일째 공유(스토리·피드 바로 올리기), 안 되면 그림 받기 안내
+  function shareImage(src,name){
+    if(!(navigator.canShare&&window.File)) return false;
+    fetch(src).then(function(r){return r.blob()}).then(function(bl){
+      var f=new File([bl],name,{type:'image/jpeg'});
+      if(navigator.canShare({files:[f]})) navigator.share({files:[f],title:TITLE,text:TEXT+' '+URL_}).catch(function(){});
+      else location.href=src;
+    }).catch(function(){ location.href=src; });
+    return true;
+  }
+  document.querySelector('[data-sns="insta"]').addEventListener('click',function(){
+    if(!shareImage('img/share_story.jpg','초록별환경놀이터_스토리.jpg')){
+      document.getElementById('instabox').scrollIntoView({behavior:'smooth',block:'center'}); say('그림을 받아서 인스타그램에 올려 주세요');
+    }
+  });
+  document.querySelectorAll('#instabox [data-img]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      if(navigator.canShare&&/Android|iPhone|iPad/i.test(navigator.userAgent)){ e.preventDefault(); shareImage(a.dataset.img,a.getAttribute('download')); }
+    });
+  });
+  // 달력 (13:00~19:00 KST = 04:00~10:00 UTC)
+  document.getElementById('calbtn').href='https://calendar.google.com/calendar/render?action=TEMPLATE'
+    +'&text='+enc('초록별 환경놀이터 (구좌 아이들이 만든 환경 축제)')
+    +'&dates=20261010T040000Z/20261010T100000Z'
+    +'&location='+enc('제주해녀박물관 야외광장, 제주특별자치도 제주시 구좌읍 해녀박물관길 26')
+    +'&details='+enc('체험부스 · 작품 전시 · 에코 시네마 · 골든벨 · 축하공연\n비가 오면 10월 17일(토)로 미뤄져요\n'+URL_);
 })();
 </script>
 </body>

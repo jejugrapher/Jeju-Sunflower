@@ -14,5 +14,5 @@ def rep(m):
 out=re.sub(r"\{\{([a-zA-Z0-9_]+)\}\}",rep,t)
 left=re.findall(r"\{\{[^}]+\}\}",out)
 assert not left, left
-open(os.path.join(D,"index.html"),"w",encoding="utf-8").write(out)
+open(os.path.join(D,"upload","index.html"),"w",encoding="utf-8").write(out)
 print("index.html", f"{len(out.encode())/1024:.0f}KB", "사용 자산", len(cache), sorted(cache))
