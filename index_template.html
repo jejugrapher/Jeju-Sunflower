@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>구좌 아이들이 만든 초록별 환경놀이터 · 10월 10일 해녀박물관</title>
+<meta name="description" content="구좌 친구들이 6월부터 9월까지 직접 준비한 환경 축제! 2026년 10월 10일(토) 오후 1시~7시, 해녀박물관 야외광장에서 만나요.">
+<meta property="og:title" content="구좌 아이들이 만든 초록별 환경놀이터 · 10월 10일(토) 해녀박물관">
+<meta property="og:description" content="우리가 직접 준비한 환경 축제에 놀러 오세요! 체험부스 25곳 · 작품 전시 · 에코 시네마 · 골든벨 · 축하공연">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://i.ytimg.com/vi/SXNGGDr3BF8/maxresdefault.jpg">
+<meta name="theme-color" content="#FDF6E9">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Gamja+Flower&display=swap" rel="stylesheet">
+<style>
+:root{
+  --grass:url("{{grass}}");
+  --paper:#FDF6E9; --paper2:#FFFBF3; --ink:#4A3526; --soft:#8A7461;
+  --green:#3E8E41; --orange:#EE8424; --blue:#2F5DA8; --yellow:#F2C018;
+  --pink:#E27BA7; --sky:#7EC4E2; --brown:#6B4A2B; --leaf:#8BC34A;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;color:var(--ink);background-color:var(--paper);
+  font-family:"Gaegu","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  font-size:21px;line-height:1.55;word-break:keep-all;overflow-wrap:break-word;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .45  0 0 0 0 .33  0 0 0 0 .2  0 0 0 .09 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+.wrap{max-width:860px;margin:0 auto;padding:0 18px}
+.hand{font-family:"Gamja Flower","Gaegu",sans-serif;font-weight:400}
+.wax{filter:url(#wax)}
+.wobble{filter:url(#wobble)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* ── 상단 바로가기 */
+nav.chips{position:sticky;top:0;z-index:20;background:rgba(253,246,233,.93);backdrop-filter:blur(6px);
+  border-bottom:3px dashed rgba(107,74,43,.18)}
+nav.chips .in{display:flex;gap:8px;overflow-x:auto;padding:10px 14px;scrollbar-width:none;max-width:860px;margin:0 auto}
+nav.chips .in::-webkit-scrollbar{display:none}
+nav.chips a{flex:0 0 auto;text-decoration:none;font-family:"Gamja Flower",sans-serif;font-size:19px;
+  padding:5px 14px 4px;border-radius:18px 14px 20px 12px;border:2.5px solid var(--c,var(--green));color:var(--c,var(--green));background:#fff9}
+nav.chips a:nth-child(2){--c:var(--orange)} nav.chips a:nth-child(3){--c:var(--blue)}
+nav.chips a:nth-child(4){--c:var(--pink)} nav.chips a:nth-child(5){--c:var(--brown)}
+nav.chips a:nth-child(6){--c:var(--green)} nav.chips a:nth-child(7){--c:var(--orange)}
+
+/* ── 히어로 */
+.hero{position:relative;padding:78px 0 0;overflow:hidden}
+.hero .sky{position:absolute;inset:0;pointer-events:none}
+.hero .sky img{position:absolute}
+.hero .lead{text-align:center;font-family:"Gamja Flower";font-size:24px;color:var(--soft);margin:0 0 6px}
+.titles{max-width:720px;margin:0 auto;padding:0 6px}
+.titles img{width:100%;height:auto}
+.titles .t1{width:84%;margin:0 auto 4px}
+.bubble{position:relative;margin:18px auto 6px;max-width:560px;text-align:center;font-family:"Gamja Flower";
+  font-size:clamp(25px,6.2vw,34px);line-height:1.3;color:var(--ink);background:#fff;padding:14px 18px 12px;
+  border-radius:40px 34px 44px 30px}
+.bubble::before{content:"";position:absolute;inset:0;border:4px solid var(--orange);border-radius:inherit;filter:url(#wobble)}
+.bubble::after{content:"";position:absolute;left:50%;bottom:-17px;width:26px;height:26px;background:#fff;
+  border-right:4px solid var(--orange);border-bottom:4px solid var(--orange);transform:translateX(-50%) rotate(45deg);filter:url(#wobble)}
+.bubble b{color:var(--green)}
+.stage{position:relative;margin-top:14px;height:clamp(230px,52vw,380px)}
+.stage .chars{position:absolute;left:50%;bottom:22px;height:92%;transform:translateX(-50%)}
+.stage .grass{position:absolute;left:0;right:0;bottom:0;height:46px;
+  background-image:var(--grass);background-size:auto 100%;background-repeat:repeat-x;background-position:bottom}
+.stage .deco{position:absolute;bottom:26px}
+@media(max-width:600px){.stage .deco.mid{display:none}}
+.facts{display:grid;gap:10px;margin:18px 0 8px}
+.fact{display:flex;align-items:center;gap:12px;background:#fff;padding:10px 16px;border-radius:22px 16px 24px 14px;position:relative}
+.fact::before{content:"";position:absolute;inset:0;border:3px solid var(--c);border-radius:inherit;filter:url(#wobble)}
+.fact .ico{font-size:28px;line-height:1}
+.fact b{font-size:25px;color:var(--c)}
+.fact span{display:block;font-size:19px;color:var(--soft);line-height:1.25}
+.dday{display:inline-block;margin:6px auto 0;font-family:"Gamja Flower";font-size:22px;color:#fff;background:var(--pink);
+  padding:4px 16px 2px;border-radius:16px 20px 14px 22px;transform:rotate(-2deg)}
+.ctas{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:16px 0 30px}
+.btn{font-family:"Gamja Flower";font-size:23px;text-decoration:none;color:#fff;background:var(--c,var(--green));
+  padding:10px 22px 8px;border-radius:26px 20px 28px 18px;box-shadow:0 4px 0 rgba(0,0,0,.14);display:inline-block}
+.btn:active{transform:translateY(2px);box-shadow:0 2px 0 rgba(0,0,0,.14)}
+
+/* ── 섹션 공통 */
+section{padding:34px 0 10px;scroll-margin-top:58px}
+h2.sec{font-family:"Gamja Flower";font-weight:400;font-size:clamp(32px,8vw,44px);text-align:center;margin:0 0 6px;color:var(--c,var(--green));line-height:1.2}
+h2.sec small{display:block;font-size:.5em;color:var(--soft)}
+.squig{display:block;width:170px;height:16px;margin:0 auto 20px;color:var(--c,var(--green))}
+p.say{font-size:22px;text-align:center;margin:0 auto 14px;max-width:640px}
+.note{font-size:18px;color:var(--soft);text-align:center;margin:10px 0 0}
+
+/* 손그림 테두리 카드 */
+.card{position:relative;background:var(--paper2);padding:16px 16px 14px;border-radius:26px 18px 28px 20px}
+.card::before{content:"";position:absolute;inset:0;border:3.5px solid var(--c,var(--green));border-radius:inherit;filter:url(#wobble);pointer-events:none}
+
+/* ── 준비 이야기 */
+.nums{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:18px 0}
+@media(min-width:620px){.nums{grid-template-columns:repeat(4,1fr)}}
+.num{text-align:center;padding:12px 6px 8px}
+.num b{display:block;font-family:"Gamja Flower";font-size:44px;line-height:1;color:var(--c)}
+.num span{font-size:19px}
+.gate{margin:14px 0 4px;border-radius:10px;overflow:hidden;box-shadow:0 6px 16px rgba(80,50,20,.14);transform:rotate(-.6deg)}
+.cap{font-size:18px;color:var(--soft);text-align:center;margin:8px 0 0}
+
+/* ── 프로그램 카드 */
+.grid{display:grid;gap:16px}
+@media(min-width:620px){.grid{grid-template-columns:1fr 1fr}}
+.prog{display:grid;grid-template-columns:86px 1fr;gap:12px;align-items:start}
+.prog .pic{width:86px;height:86px;display:flex;align-items:center;justify-content:center}
+.prog .pic img{max-width:86px;max-height:86px;animation:sway 5s ease-in-out infinite}
+.prog:nth-child(2n) .pic img{animation-delay:-2.3s}
+.prog h3{margin:0 0 2px;font-family:"Gamja Flower";font-weight:400;font-size:27px;line-height:1.2;color:var(--c)}
+.prog p{margin:0;font-size:19.5px;line-height:1.45}
+.tag{display:inline-block;margin-top:8px;font-size:17px;padding:1px 10px;border-radius:10px 14px 9px 13px;background:var(--c);color:#fff}
+.tag.w{background:#fff;color:var(--c);border:2px solid var(--c)}
+@media(max-width:420px){.prog{grid-template-columns:62px 1fr;gap:10px}.prog .pic{width:62px;height:70px}.prog .pic img{max-width:62px;max-height:70px}.prog h3{font-size:25px}}
+@keyframes sway{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg) translateY(-3px)}}
+
+/* ── 시간표 */
+.time{position:relative;margin:0 auto;max-width:640px;padding-left:34px}
+.time::before{content:"";position:absolute;left:14px;top:10px;bottom:10px;width:6px;border-radius:6px;
+  background:repeating-linear-gradient(180deg,var(--leaf) 0 14px,transparent 14px 22px);filter:url(#wobble)}
+.slot{position:relative;margin:0 0 16px}
+.slot::before{content:"";position:absolute;left:-30px;top:18px;width:22px;height:22px;border-radius:50%;background:var(--c);
+  box-shadow:0 0 0 4px var(--paper);filter:url(#wobble)}
+.slot .when{font-family:"Gamja Flower";font-size:26px;color:var(--c);line-height:1.1}
+.slot .what{font-size:20px}
+.slot .what b{font-size:22px}
+.daybar{text-align:center;font-family:"Gamja Flower";font-size:26px;margin:0 auto 18px;max-width:560px;padding:8px 14px 6px}
+
+/* ── 누구나 */
+.who{text-align:center}
+.who .face{font-size:44px;line-height:1}
+.who h3{margin:4px 0 6px;font-family:"Gamja Flower";font-weight:400;font-size:27px;color:var(--c)}
+.who ul{list-style:none;margin:0;padding:0;font-size:19.5px}
+.who li{margin:2px 0}
+.who li::before{content:"✿ ";color:var(--c)}
+
+/* ── 준비물 */
+.bring{display:grid;gap:14px}
+@media(min-width:620px){.bring{grid-template-columns:repeat(3,1fr)}}
+.bring .card{text-align:center}
+.bring svg{width:96px;height:96px;display:block;margin:0 auto 4px}
+.bring h3{margin:0;font-family:"Gamja Flower";font-weight:400;font-size:27px;color:var(--c)}
+.bring p{margin:4px 0 0;font-size:19px}
+.promise{margin:18px auto 0;max-width:600px;text-align:center;font-family:"Gamja Flower";font-size:26px;padding:12px 16px 10px}
+
+/* ── 오시는 길 */
+.place{text-align:center}
+.place .name{font-family:"Gamja Flower";font-size:32px;color:var(--blue);line-height:1.2}
+.place .addr{font-size:20px;margin:4px 0 12px}
+.maps{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.rain{margin:16px auto 0;max-width:560px;text-align:center;font-size:21px;padding:10px 14px}
+.call{display:inline-block;margin-top:10px;font-size:21px;text-decoration:none;border-bottom:2px dashed currentColor}
+
+/* ── 그림 친구들 */
+.gal{display:grid;gap:16px}
+@media(min-width:620px){.gal{grid-template-columns:1fr 1fr}}
+.frame{margin:0;background:#fff;padding:10px 10px 8px;border-radius:6px;box-shadow:0 6px 14px rgba(80,50,20,.16);cursor:zoom-in;position:relative}
+.frame:nth-child(1){transform:rotate(-1.2deg)} .frame:nth-child(2){transform:rotate(1deg)}
+.frame:nth-child(3){transform:rotate(.8deg)} .frame:nth-child(4){transform:rotate(-.7deg)}
+.frame::before{content:"";position:absolute;top:-10px;left:50%;width:80px;height:22px;transform:translateX(-50%) rotate(-3deg);
+  background:rgba(242,192,24,.55);border-radius:3px}
+.frame img{width:100%;height:auto;border-radius:3px}
+.frame figcaption{font-family:"Gamja Flower";font-size:22px;text-align:center;margin-top:6px}
+.frame figcaption small{display:block;font-family:"Gaegu";font-size:17px;color:var(--soft)}
+dialog.lb{border:0;padding:0;background:transparent;max-width:96vw;max-height:94vh}
+dialog.lb::backdrop{background:rgba(40,28,18,.8)}
+dialog.lb img{max-width:96vw;max-height:88vh;border-radius:6px}
+dialog.lb button{display:block;margin:10px auto 0;font-family:"Gamja Flower";font-size:22px;background:#fff;border:0;border-radius:16px;padding:6px 20px}
+
+/* ── 사생대회 */
+.contest{padding:18px 16px 14px}
+.contest dl{margin:8px 0 0;display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:19.5px}
+.contest dt{font-family:"Gamja Flower";font-size:22px;color:var(--c)}
+.contest dd{margin:0}
+
+/* ── 영상 */
+.vids{display:grid;gap:16px}
+@media(min-width:620px){.vids{grid-template-columns:1.6fr 1fr;align-items:start}}
+.yt{position:relative;border-radius:14px;overflow:hidden;background:#222;cursor:pointer;box-shadow:0 6px 14px rgba(0,0,0,.15)}
+.yt.wide{aspect-ratio:16/9} .yt.tall{aspect-ratio:9/16;max-width:320px;margin:0 auto}
+.yt img{width:100%;height:100%;object-fit:cover;opacity:.92}
+.yt .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:74px;height:74px;border-radius:50%;
+  background:rgba(238,132,36,.95);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.3)}
+.yt .play::after{content:"";margin-left:6px;border-left:24px solid #fff;border-top:15px solid transparent;border-bottom:15px solid transparent}
+.yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vcap{font-family:"Gamja Flower";font-size:21px;text-align:center;margin:6px 0 0}
+
+/* ── 푸터 */
+footer{margin-top:40px;padding:0 0 110px;text-align:center;font-size:19px}
+footer .grass2{height:46px;background-image:var(--grass);background-size:auto 100%;background-repeat:repeat-x}
+footer .in{background:#fff7e8;padding:20px 16px 8px}
+footer .row{margin:4px 0}
+footer .k{font-family:"Gamja Flower";font-size:22px;color:var(--green);margin-right:6px}
+footer img.logo{display:inline-block;height:26px;vertical-align:-5px;margin-right:4px}
+footer .by{font-size:16px;color:var(--soft);margin-top:12px}
+
+/* ── 모바일 하단 바 */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;gap:8px;justify-content:center;
+  padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(253,246,233,.96);border-top:3px dashed rgba(107,74,43,.2)}
+.bar .btn{font-size:20px;padding:8px 16px 6px}
+@media(min-width:900px){.bar{display:none} footer{padding-bottom:30px}}
+
+@media (prefers-reduced-motion: reduce){*{animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<!-- 크레파스 질감 필터 -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="wobble" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="3" result="w"/>
+      <feDisplacementMap in="SourceGraphic" in2="w" scale="4" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feTurbulence type="fractalNoise" baseFrequency="1.3" numOctaves="1" seed="11" result="g"/>
+      <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.5 1.45" result="ga"/>
+      <feComposite in="d" in2="ga" operator="in"/>
+    </filter>
+    <filter id="wax" x="-5%" y="-10%" width="110%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="5" result="w"/>
+      <feDisplacementMap in="SourceGraphic" in2="w" scale="2.2" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feTurbulence type="fractalNoise" baseFrequency="1.6" numOctaves="1" seed="2" result="g"/>
+      <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.1 1.35" result="ga"/>
+      <feComposite in="d" in2="ga" operator="in"/>
+    </filter>
+    <pattern id="hY" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><line x1="0" y1="0" x2="0" y2="7" stroke="#F2C018" stroke-width="4"/></pattern>
+    <pattern id="hG" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-30)"><line x1="0" y1="0" x2="0" y2="7" stroke="#8BC34A" stroke-width="4"/></pattern>
+    <pattern id="hB" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(40)"><line x1="0" y1="0" x2="0" y2="7" stroke="#7EC4E2" stroke-width="4"/></pattern>
+    <pattern id="hP" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-35)"><line x1="0" y1="0" x2="0" y2="7" stroke="#E27BA7" stroke-width="4"/></pattern>
+    <symbol id="sq" viewBox="0 0 170 16"><path d="M4 10 C 22 2, 34 16, 52 8 S 84 2, 102 9 S 136 15, 166 6" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></symbol>
+  </defs>
+</svg>
+
+<nav class="chips" aria-label="바로가기"><div class="in">
+  <a href="#what">무엇을 해요?</a><a href="#time">시간표</a><a href="#who">누가 즐겨요?</a>
+  <a href="#bring">준비물</a><a href="#way">오시는 길</a><a href="#friends">그림 친구들</a><a href="#video">영상</a>
+</div></nav>
+
+<!-- ═══ 히어로 -->
+<header class="hero">
+  <div class="sky" aria-hidden="true">
+    <img src="{{m_jh_sun}}" alt="" style="right:5%;top:6px;width:clamp(58px,14vw,100px);animation:sway 7s ease-in-out infinite">
+    <img src="{{m_cloud1}}" alt="" style="left:5%;top:14px;width:clamp(66px,15vw,110px)">
+    <img src="{{m_star2}}" alt="" style="left:34%;top:12px;width:30px">
+    <img src="{{m_jh_note2}}" alt="" style="right:30%;top:18px;width:38px;animation:sway 6s ease-in-out infinite">
+  </div>
+  <div class="wrap">
+    <p class="lead">2026년 가을, 구좌 친구들이 준비한</p>
+    <h1 class="titles">
+      <img class="t1" src="{{title1}}" alt="구좌 아이들이 만든" width="1200" height="175">
+      <img src="{{title2}}" alt="초록별 환경놀이터" width="1200" height="191">
+    </h1>
+    <div class="bubble">우리가 직접 준비한<br><b>환경 축제</b>에 놀러 오세요!</div>
+  </div>
+  <div class="stage" aria-hidden="true">
+    <img class="chars" src="{{chars}}" alt="">
+    <img class="deco" src="{{m_c_sunflower2}}" alt="" style="left:6%;height:44%">
+    <img class="deco mid" src="{{m_tulip1}}" alt="" style="left:20%;height:17%">
+    <img class="deco mid" src="{{m_jh_flower2}}" alt="" style="right:20%;height:22%">
+    <img class="deco" src="{{m_sunflower}}" alt="" style="right:6%;height:46%">
+    <div class="grass"></div>
+  </div>
+  <div class="wrap">
+    <div class="facts">
+      <div class="fact" style="--c:var(--orange)"><div class="ico"><svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><g filter="url(#wax)" stroke-linejoin="round"><rect x="3" y="6" width="28" height="25" rx="4" fill="#fff" stroke="#EE8424" stroke-width="2.6"/><rect x="3" y="6" width="28" height="8" rx="3" fill="#EE8424"/><path d="M10 3v6M24 3v6" stroke="#6B4A2B" stroke-width="2.6" stroke-linecap="round"/></g><text x="17" y="27.5" text-anchor="middle" font-family="Gamja Flower,Gaegu,sans-serif" font-size="12" fill="#4A3526">10.10</text></svg></div><div><b>10월 10일 토요일</b><span>오후 1시 ~ 7시</span></div></div>
+      <div class="fact" style="--c:var(--blue)"><div class="ico">📍</div><div><b>해녀박물관 야외광장</b><span>제주시 구좌읍 해녀박물관길 26</span></div></div>
+      <div class="fact" style="--c:var(--green)"><div class="ico">🌏</div><div><b>지구를 사랑하는 누구나</b><span>어린이도, 가족도, 이웃도, 여행 온 분도 모두 환영해요</span></div></div>
+    </div>
+    <div style="text-align:center"><span class="dday" id="dday"></span></div>
+    <div class="ctas">
+      <a class="btn" href="#what" style="--c:var(--green)">무엇을 하나요?</a>
+      <a class="btn" href="#way" style="--c:var(--blue)">오시는 길</a>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ═══ 준비 이야기 -->
+<section id="story" style="--c:var(--orange)">
+  <div class="wrap">
+    <h2 class="sec hand">우리가 이렇게 준비했어요</h2>
+    <svg class="squig"><use href="#sq"/></svg>
+    <p class="say">6월부터 9월까지, 구좌의 <b>지역아동센터 4곳</b>과 <b>학교 6곳</b> 친구들이 모두 <b>84번</b>의 환경 수업을 했어요.</p>
+    <p class="say">버려진 물건으로 작품을 만들고, 지구를 생각하며 그림을 그리고, 노래도 열심히 연습했어요. 그렇게 준비한 걸 <b>10월 10일</b>에 모두 보여 드릴게요!</p>
+    <div class="nums">
+      <div class="card num" style="--c:var(--green)"><b>84번</b><span>환경 수업</span></div>
+      <div class="card num" style="--c:var(--orange)"><b>4곳</b><span>지역아동센터</span></div>
+      <div class="card num" style="--c:var(--blue)"><b>6곳</b><span>학교</span></div>
+      <div class="card num" style="--c:var(--pink)"><b>25곳</b><span>체험부스</span></div>
+    </div>
+    <div class="gate"><img src="{{gate}}" alt="아이들이 크레파스로 그린 초록별 환경놀이터 현수막 그림 — 지구와 아이들, 당근, 고래, 꽃과 별" width="1400" height="420" loading="lazy"></div>
+    <p class="cap">▲ 구좌 친구들이 크레파스로 직접 그린 행사 현수막 그림이에요</p>
+  </div>
+</section>
+
+<!-- ═══ 무엇을 해요 -->
+<section id="what" style="--c:var(--green)">
+  <div class="wrap">
+    <h2 class="sec hand">10월 10일, 이런 걸 해요!</h2>
+    <svg class="squig"><use href="#sq"/></svg>
+    <div class="grid">
+      <article class="card prog" style="--c:var(--green)">
+        <div class="pic"><img src="{{m_jh_recycle2}}" alt=""></div>
+        <div><h3>환경 체험부스 25곳</h3><p>지구를 살리는 만들기와 체험이 25곳이나 있어요. 하나씩 다 해 보고 싶을 거예요!</p><span class="tag">오후 1시 ~ 5시</span></div>
+      </article>
+      <article class="card prog" style="--c:var(--orange)">
+        <div class="pic"><img src="{{m_c_sunflower2}}" alt=""></div>
+        <div><h3>업사이클링 작품 전시</h3><p>페트병, 바다 쓰레기, 헌 그림책이 멋진 작품으로 다시 태어났어요. 우리가 <b>어린이 도슨트</b>가 되어 직접 설명해 줄게요!</p><span class="tag">오후 1시 ~ 5시</span></div>
+      </article>
+      <article class="card prog" style="--c:var(--blue)">
+        <div class="pic"><img src="{{m_sunflower}}" alt=""></div>
+        <div><h3>환경 사생대회 그림 전시</h3><p>구좌 친구들이 그린 푸른 지구 이야기를 만나 보세요. 멋진 그림이 가득해요!</p><span class="tag">오후 1시 ~ 5시</span></div>
+      </article>
+      <article class="card prog" style="--c:var(--brown)">
+        <div class="pic"><img src="{{m_tulip1}}" alt=""></div>
+        <div><h3>초록별 놀이마당</h3><p>나무 조각으로 톱질·망치질도 하고, 종이상자로 탑 쌓기·집 짓기도 해요!</p><span class="tag">오후 1시 ~ 5시</span></div>
+      </article>
+      <article class="card prog" style="--c:var(--blue)">
+        <div class="pic"><img src="{{m_whale1}}" alt=""></div>
+        <div><h3>에코 시네마</h3><p>메인무대에서 환경 영화 「조수웅덩이 : 바다의 시작」을 함께 봐요. <b>임형묵 감독님</b>도 만날 수 있어요!</p><span class="tag">오후 3시 ~ 4시</span> <span class="tag w">메인무대</span></div>
+      </article>
+      <article class="card prog" style="--c:var(--orange)">
+        <div class="pic"><img src="{{m_star2}}" alt="" style="width:62px"></div>
+        <div><h3>도전! 환경 골든벨</h3><p>환경 퀴즈왕은 누구일까요? 미리 신청한 친구들이 무대에서 도전해요!</p><span class="tag">오후 4시 30분</span> <span class="tag w">메인무대</span></div>
+      </article>
+      <article class="card prog" style="--c:var(--green)">
+        <div class="pic"><img src="{{m_sj_canola}}" alt=""></div>
+        <div><h3>에코 순환 마트</h3><p>아껴 쓰고 나눠 쓰는 아나바다 장터! 구좌의 농수산물도 만날 수 있어요.</p><span class="tag">오후 1시 ~ 5시</span></div>
+      </article>
+      <article class="card prog" style="--c:var(--pink)">
+        <div class="pic"><img src="{{m_star3}}" alt="" style="width:58px"></div>
+        <div><h3>보물찾기</h3><p>행사장 곳곳에 숨어 있는 보물을 찾아보세요. 찾으면 선물이 있어요!</p><span class="tag">오후 1시 ~ 5시</span></div>
+      </article>
+      <article class="card prog" style="--c:var(--orange)">
+        <div class="pic"><img src="{{m_jh_flower2}}" alt=""></div>
+        <div><h3>다 같이 그려요</h3><p>20미터 긴 천에 다 함께 그림을 그리고, 얼굴 모양 판에 내 얼굴도 그려서 남겨요!</p><span class="tag">오후 1시 ~ 5시</span></div>
+      </article>
+      <article class="card prog" style="--c:var(--pink)">
+        <div class="pic"><img src="{{m_jh_note1}}" alt=""></div>
+        <div><h3>기념식 &amp; 축하공연</h3><p>사생대회 시상식을 하고, <b>구좌읍 어린이 합창단</b>과 <b>구좌 청소년 오케스트라</b>가 축하 공연을 해요!</p><span class="tag">오후 5시 ~ 6시</span> <span class="tag w">메인무대</span></div>
+      </article>
+    </div>
+    <p class="note">※ 부스와 체험 내용은 준비 상황에 따라 조금 바뀔 수 있어요. 부스 위치는 곧 알려 드릴게요!</p>
+  </div>
+</section>
+
+<!-- ═══ 시간표 -->
+<section id="time" style="--c:var(--blue)">
+  <div class="wrap">
+    <h2 class="sec hand">하루 시간표</h2>
+    <svg class="squig"><use href="#sq"/></svg>
+    <div class="card daybar" style="--c:var(--blue)">10월 10일 토요일 · 오후 1시 ~ 7시</div>
+    <div class="time">
+      <div class="slot" style="--c:var(--green)"><div class="when">오후 1:00 ~ 5:00</div>
+        <div class="what"><b>1부 · 초록별 놀이마당</b><br>체험부스 25곳 · 작품 전시 · 놀이마당 · 에코 순환 마트 · 보물찾기</div></div>
+      <div class="slot" style="--c:var(--blue)"><div class="when">오후 3:00 ~ 4:00</div>
+        <div class="what"><b>에코 시네마</b> 「조수웅덩이 : 바다의 시작」 · 감독과 만남 <br>메인무대</div></div>
+      <div class="slot" style="--c:var(--orange)"><div class="when">오후 4:30</div>
+        <div class="what"><b>도전! 환경 골든벨</b><br>메인무대</div></div>
+      <div class="slot" style="--c:var(--pink)"><div class="when">오후 5:00 ~ 6:00</div>
+        <div class="what"><b>2부 · 기념식 &amp; 축하마당</b><br>개회식 · 환경 사생대회 시상 · 어린이 합창단 · 청소년 오케스트라</div></div>
+    </div>
+    <p class="note">※ 순서와 시간은 현장 사정에 따라 조금 달라질 수 있어요.</p>
+  </div>
+</section>
+
+<!-- ═══ 누가 즐겨요 -->
+<section id="who" style="--c:var(--pink)">
+  <div class="wrap">
+    <h2 class="sec hand">누가 무엇을 즐길까요?</h2>
+    <svg class="squig"><use href="#sq"/></svg>
+    <div class="grid">
+      <div class="card who" style="--c:var(--orange)"><div class="face">🧒</div><h3>어린이 친구들</h3>
+        <ul><li>만들기 체험부스</li><li>톱질·망치질, 상자 놀이</li><li>보물찾기와 골든벨</li></ul></div>
+      <div class="card who" style="--c:var(--green)"><div class="face">👨‍👩‍👧</div><h3>엄마 · 아빠 · 가족</h3>
+        <ul><li>아이와 함께 하는 체험</li><li>나무 그늘 쉼터에서 쉬기</li><li>영화와 축하공연</li></ul></div>
+      <div class="card who" style="--c:var(--blue)"><div class="face">🏡</div><h3>우리 동네 이웃</h3>
+        <ul><li>동네 아이들의 작품과 공연</li><li>구좌 농수산물 장터</li><li>아이들이 설명해 주는 전시</li></ul></div>
+      <div class="card who" style="--c:var(--brown)"><div class="face">🧳</div><h3>여행 온 분들</h3>
+        <ul><li>해녀박물관과 함께 둘러보기</li><li>포토존에서 추억 사진</li><li>구좌 바다 곁의 가을 축제</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 준비물 -->
+<section id="bring" style="--c:var(--green)">
+  <div class="wrap">
+    <h2 class="sec hand">이렇게 준비해 오세요<small>쓰레기 없는 축제를 함께 만들어요</small></h2>
+    <svg class="squig"><use href="#sq"/></svg>
+    <div class="bring">
+      <div class="card" style="--c:var(--blue)">
+        <svg viewBox="0 0 96 96" aria-hidden="true"><g filter="url(#wax)" stroke="#2F5DA8" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+          <path d="M28 20 H68 L63 82 Q62 88 56 88 H40 Q34 88 33 82 Z" fill="url(#hB)"/>
+          <rect x="24" y="11" width="48" height="11" rx="4" fill="#fff"/><path d="M36 46 H60" fill="none"/></g></svg>
+        <h3>개인 컵 (텀블러)</h3><p>행사장에서는 일회용 컵을 드리지 않아요</p></div>
+      <div class="card" style="--c:var(--orange)">
+        <svg viewBox="0 0 96 96" aria-hidden="true"><g filter="url(#wax)" stroke="#EE8424" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+          <path d="M18 38 H78 L73 86 H23 Z" fill="url(#hY)"/>
+          <path d="M34 38 Q34 14 48 14 Q62 14 62 38" fill="none"/><path d="M40 60 q8 10 16 0" fill="none" stroke="#3E8E41"/></g></svg>
+        <h3>에코백</h3><p>장터 물건과 내가 만든 작품을 담아 가요</p></div>
+      <div class="card" style="--c:var(--pink)">
+        <svg viewBox="0 0 96 96" aria-hidden="true"><g filter="url(#wax)" stroke="#E27BA7" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+          <path d="M12 40 H72 V76 H12 Z" fill="url(#hP)"/>
+          <ellipse cx="78" cy="58" rx="9" ry="18" fill="#fff"/><path d="M12 52 H72 M12 64 H72" fill="none" stroke="#3E8E41"/></g></svg>
+        <h3>개인 돗자리</h3><p>잔디밭에 앉아 영화와 공연을 봐요</p></div>
+    </div>
+    <div class="card promise" style="--c:var(--green)">🌏 초록별을 지키는 약속, 우리 같이 지켜요!</div>
+  </div>
+</section>
+
+<!-- ═══ 오시는 길 -->
+<section id="way" style="--c:var(--blue)">
+  <div class="wrap place">
+    <h2 class="sec hand">오시는 길</h2>
+    <svg class="squig"><use href="#sq"/></svg>
+    <div class="name">제주해녀박물관 야외광장</div>
+    <div class="addr">제주특별자치도 제주시 구좌읍 해녀박물관길 26</div>
+    <div class="maps">
+      <a class="btn" style="--c:var(--yellow);color:#4A3526" href="https://map.kakao.com/?q=%EC%A0%9C%EC%A3%BC%ED%95%B4%EB%85%80%EB%B0%95%EB%AC%BC%EA%B4%80" target="_blank" rel="noopener">카카오맵</a>
+      <a class="btn" style="--c:var(--green)" href="https://map.naver.com/p/search/%EC%A0%9C%EC%A3%BC%ED%95%B4%EB%85%80%EB%B0%95%EB%AC%BC%EA%B4%80" target="_blank" rel="noopener">네이버 지도</a>
+    </div>
+    <div class="card rain" style="--c:var(--sky)">☔ 비가 오면 <b>10월 17일(토)</b>로 미뤄져요</div>
+    <a class="call" href="tel:01054897984">📞 문의 010-5489-7984 (초록별 환경놀이터 담당자)</a>
+  </div>
+</section>
+
+<!-- ═══ 사생대회 (9월 30일까지 표시) -->
+<section id="contest" style="--c:var(--orange)" data-until="2026-09-30T23:59:59+09:00">
+  <div class="wrap">
+    <h2 class="sec hand">환경 사생대회 작품을 모아요<small>9월 30일(수) 오후 6시까지</small></h2>
+    <svg class="squig"><use href="#sq"/></svg>
+    <div class="card contest" style="--c:var(--orange)">
+      <dl>
+        <dt>참가대상</dt><dd>초등학생</dd>
+        <dt>주제</dt><dd>환경 관련 자유 주제 (예: 우리가 꿈꾸는 깨끗한 지구)</dd>
+        <dt>종이</dt><dd>8절지 · 도구와 표현 방법은 자유</dd>
+        <dt>내는 곳</dt><dd>9월 30일(수) 오후 6시까지 관내 지역아동센터에 직접 제출</dd>
+        <dt>꼭 적기</dt><dd>작품 뒷면에 이름 · 학교/학년 · 보호자 연락처 · 작품 제목</dd>
+        <dt>시상</dt><dd>10월 10일 본 행사에서 전시하고 시상해요 (상장·부상)</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 그림 친구들 -->
+<section id="friends" style="--c:var(--brown)">
+  <div class="wrap">
+    <h2 class="sec hand">그림을 그린 친구들<small>이 페이지의 그림은 모두 구좌 친구들이 그렸어요</small></h2>
+    <svg class="squig"><use href="#sq"/></svg>
+    <div class="gal">
+      <figure class="frame"><img src="{{draw_jihoon}}" alt="김지훈 학생 그림 — 웃는 지구와 손잡은 아이들, 고래, 당근, 나무, 해" loading="lazy" width="1300" height="900">
+        <figcaption>김지훈<small>세화초등학교 6학년</small></figcaption></figure>
+      <figure class="frame"><img src="{{draw_seojun}}" alt="고서준 학생 그림 — 한라산과 바다, 돌담, 새싹 심는 아이들, 돌하르방" loading="lazy" width="900" height="1267">
+        <figcaption>고서준<small>한동초등학교 6학년</small></figcaption></figure>
+      <figure class="frame"><img src="{{draw_seonyu}}" alt="김선유 학생 그림 — 당근밭과 그림 그리는 아이들, 해와 나무, 해바라기" loading="lazy" width="1300" height="919">
+        <figcaption>김선유<small>한동초등학교 3학년</small></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 영상 -->
+<section id="video" style="--c:var(--orange)">
+  <div class="wrap">
+    <h2 class="sec hand">준비하는 모습을 보여 드려요</h2>
+    <svg class="squig"><use href="#sq"/></svg>
+    <div class="vids">
+      <div><div class="yt wide" data-id="SXNGGDr3BF8"><img src="https://i.ytimg.com/vi/SXNGGDr3BF8/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/SXNGGDr3BF8/hqdefault.jpg'" alt="영상: 초록별 환경놀이터 준비 스케치" loading="lazy"><div class="play"></div></div>
+        <p class="vcap">우리 동네 노래 「밭길 따라 돌담 따라」와 함께한 여름</p></div>
+      <div><div class="yt tall" data-id="5Sv0ph42FjE"><img src="https://i.ytimg.com/vi/5Sv0ph42FjE/oardefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/5Sv0ph42FjE/hqdefault.jpg'" alt="쇼츠: 아이들이 만드는 중" loading="lazy"><div class="play"></div></div>
+        <p class="vcap">버려진 골판지가 놀이터가 되기까지</p></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="grass2" aria-hidden="true"></div>
+  <div class="in">
+    <div class="row"><span class="k">주최</span><img class="logo" src="{{logo_jeju}}" alt="제주시">구좌읍</div>
+    <div class="row"><span class="k">주관</span>구좌읍지역아동센터연합회 · 해바라기지역아동센터</div>
+    <div class="row"><span class="k">문의</span><a href="tel:01054897984">010-5489-7984</a> 초록별 환경놀이터 담당자</div>
+    <div class="by">그림 · 구좌 친구들 &nbsp;|&nbsp; 페이지 제작 · 제주그래퍼</div>
+  </div>
+</footer>
+
+<div class="bar">
+  <a class="btn" href="#what" style="--c:var(--green)">무엇을 해요?</a>
+  <a class="btn" href="#way" style="--c:var(--blue)">📍 오시는 길</a>
+</div>
+
+<dialog class="lb" id="lb"><img alt=""><button type="button">닫기</button></dialog>
+
+<script>
+(function(){
+  // D-day (한국 시간 기준)
+  var ev = Date.UTC(2026,9,10,4,0,0);          // 10월 10일 13:00 KST
+  var now = Date.now();
+  var kstDay = function(t){ return Math.floor((t + 9*3600e3)/86400e3); };
+  var diff = kstDay(ev) - kstDay(now);
+  var el = document.getElementById('dday');
+  if (el) el.textContent = diff > 0 ? ('축제까지 D-' + diff) : (diff === 0 ? '오늘이에요! 놀러 오세요' : '함께해 주셔서 고마워요');
+
+  // 기한 지난 안내 숨기기
+  document.querySelectorAll('[data-until]').forEach(function(s){
+    if (now > Date.parse(s.getAttribute('data-until'))) s.remove();
+  });
+
+  // 유튜브: 눌렀을 때만 불러오기
+  document.querySelectorAll('.yt').forEach(function(b){
+    b.addEventListener('click', function(){
+      if (b.querySelector('iframe')) return;
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + b.dataset.id + '?autoplay=1&rel=0';
+      f.allow = 'autoplay; encrypted-media; picture-in-picture'; f.allowFullscreen = true;
+      f.title = 'YouTube 영상';
+      b.appendChild(f);
+    });
+  });
+
+  // 그림 크게 보기
+  var lb = document.getElementById('lb');
+  document.querySelectorAll('.frame').forEach(function(fr){
+    fr.addEventListener('click', function(){
+      lb.querySelector('img').src = fr.querySelector('img').src;
+      lb.querySelector('img').alt = fr.querySelector('img').alt;
+      if (lb.showModal) lb.showModal();
+    });
+  });
+  lb.addEventListener('click', function(){ lb.close(); });
+})();
+</script>
+</body>
+</html>
