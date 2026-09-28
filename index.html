@@ -256,8 +256,8 @@ footer .by{font-size:16px;color:var(--soft);margin-top:12px}
 @media(max-width:679px){.swipe{display:block}}
 .mapbox img.base{width:100%;height:auto;display:block}
 .pin{position:absolute;transform:translate(-50%,-50%);display:flex;align-items:center;gap:4px;border:0;cursor:pointer;
-  font-family:"Gamja Flower";font-size:clamp(13px,2.05cqw,20px);line-height:1;color:var(--ink);background:#fff;
-  padding:4px 9px 3px 5px;border-radius:16px 12px 18px 11px;box-shadow:0 2px 0 rgba(0,0,0,.18);white-space:nowrap}
+  font-family:"Gamja Flower";font-size:clamp(10px,1.95cqw,20px);line-height:1;color:var(--ink);background:#fff;
+  padding:.22em .5em .18em .3em;border-radius:16px 12px 18px 11px;box-shadow:0 2px 0 rgba(0,0,0,.18);white-space:nowrap}
 .pin::before{content:"";position:absolute;inset:0;border:2.5px solid var(--c);border-radius:inherit;filter:url(#wobble)}
 .pin i{font-style:normal;font-size:1.15em}
 .pin:hover,.pin:focus-visible{transform:translate(-50%,-50%) scale(1.08);outline:none}
@@ -292,6 +292,9 @@ dialog.zd li::before{content:"✿ ";color:var(--c)}
 .bcard .no{display:inline-flex;width:26px;height:26px;margin-right:6px;border-radius:50%;color:#fff;font-size:16px;
   align-items:center;justify-content:center;vertical-align:1px}
 .bh{margin:26px 0 2px;text-align:center;font-family:"Gamja Flower";font-size:clamp(25px,4vw,31px);color:var(--c)}
+.bcard.plain{display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:210px;text-align:center;border:3px dashed var(--c)}
+.bcard.plain .emo{font-size:58px;line-height:1.1;margin-bottom:6px}
+.bcard.plain b{margin-top:2px;color:var(--c)}
 @media(max-width:420px){.blist{grid-template-columns:1fr 1fr;gap:10px}.bcard img{height:118px}.bcard b{font-size:19px}.bcard span{font-size:15px}}
 .booth{display:grid;grid-template-columns:92px 1fr;gap:10px;align-items:center;background:#fff;border-radius:14px;padding:6px}
 .booth img{width:92px;height:70px;object-fit:cover;border-radius:10px;background:#f3eee3}
@@ -425,11 +428,7 @@ dialog.zd .meta span{font-size:16.5px;padding:1px 10px;border-radius:10px 13px 9
   <div class="wrap">
     <h2 class="sec hand">행사장 그림지도<small>어디에 뭐가 있을까? 이름표를 눌러 보세요!</small></h2>
     <svg class="squig"><use href="#sq"/></svg>
-    <figure class="spread">
-      <img src="img/book/p05_village.webp" alt="돌담과 당근밭, 바다에서 헤엄치는 당근을 그린 구좌 마을 그림" width="1400" height="709" loading="lazy" decoding="async">
-      <figcaption>당근밭과 바다 사이, 해녀박물관 야외광장에서 만나요<br><span style="opacity:.75">구좌 아이들이 그린 당근 그림책에서</span></figcaption>
-    </figure>
-    <p class="swipe">← 지도를 옆으로 밀어 보세요 →</p>
+        <p class="swipe">← 지도를 옆으로 밀어 보세요 →</p>
     <div class="mapscroll"><div class="mapbox">
       <img class="base" src="img/map_aerial.webp" alt="초록별 환경놀이터 행사장 조감도 — 제주해녀박물관 야외광장에 입구, 전시존, 체험부스존, 놀이존, 에코 순환 마트, 모모장, 미술체험존, 포토존, 공연무대존, 휴식존, 음식체험존, 본부석, 방명록, 커피트럭이 자리해요" width="2000" height="1126">
       <div id="pins"></div>
@@ -535,6 +534,13 @@ dialog.zd .meta span{font-size:16.5px;padding:1px 10px;border-radius:10px 13px 9
     <div class="blist" id="blist-exp"></div>
     <h3 class="bh" style="--c:var(--blue)">🥪 음식 체험은 이런 걸 해요 <span style="font-size:.7em;color:var(--soft)">· 모두 무료</span></h3>
     <div class="blist" id="blist-food"></div>
+    <h3 class="bh" style="--c:var(--pink)">📸 부스 말고 이런 체험도 있어요</h3>
+    <div class="blist">
+      <div class="bcard plain" style="--c:var(--pink)"><div class="emo">📸</div>
+        <b>구좌 인생네컷</b><span>해녀복과 소품을 입고 네컷 사진을 찍어요 · 포토존</span></div>
+      <div class="bcard plain" style="--c:var(--brown)"><div class="emo">☕</div>
+        <b>커피트럭</b><span>청년 발달장애인 바리스타가 커피를 내려요 · 입구 쪽</span></div>
+    </div>
     <p class="note">※ 그림은 그 부스에서 무엇을 하는지 보여 주는 그림이에요.</p>
   </div>
 </section>
@@ -836,7 +842,7 @@ var ZONES={
  gate:{no:1,name:'입구',icon:'🌸',c:'#8DBA2B',x:49.0,y:46.5,when:'오후 1시부터',
   text:'전시존과 놀이존 사이, 꽃 아치를 지나 축제장으로 들어와요.',
   list:['구좌 친구들이 크레파스로 그린 현수막이 놀이존 쪽에서 보여요','박물관 쪽이 아니라 화장실·장터 쪽에서 올라오면 바로예요']},
- exhibit:{no:2,name:'전시존',icon:'🖼',c:'#26A6DB',x:63.5,y:58.5,when:'오후 2시 ~ 6시',
+ exhibit:{no:2,name:'전시존',icon:'🖼',c:'#26A6DB',x:66.5,y:62.5,when:'오후 2시 ~ 6시',
   text:'박물관에서 놀이존으로 가는 길을 따라 작품이 전시돼요. 어린이 도슨트가 직접 설명해 줘요!',
   list:['삼각 큐브 전시대 — 들락날락 드나들 수 있는 작은 놀이터이기도 해요','업사이클링 작품 · 환경 사생대회 그림']},
  exp:{no:3,name:'체험부스존',icon:'✂️',c:'#F5891F',x:47.5,y:28.7,when:'오후 2시 ~ 6시',
@@ -846,8 +852,8 @@ var ZONES={
   list:['버려진 나무로 망치질 목공 체험','종이상자로 탑 쌓기 · 집 짓기','세계 놀이 — 몰키, 링가링가, 딱지접기'],vids:1},
  market:{no:5,name:'에코 순환 마트',icon:'🧺',c:'#43B047',x:34.4,y:15.9,when:'오후 2시 ~ 3시',
   text:'작은 원형광장에서 아껴 쓰고 나눠 쓰는 어린이 장터가 열려요.',list:['어린이 벼룩시장 — 나눔과 판매','지역 특산품 소개']},
- momo:{no:6,name:'모모장',icon:'🌾',c:'#268C50',x:55.6,y:20.2,when:'오후 2시 ~ 3시',
-  text:'구좌읍 모모장이 장터를 열어요. 업사이클링·친환경 제품을 주로 가지고 나와요.',list:['에코 순환 마트와 같은 시간에 함께 열어요','주차장 쪽 라인에 매대가 서요']},
+ momo:{no:6,name:'모모장',icon:'🌾',c:'#268C50',x:49.5,y:14.5,when:'오후 2시 ~ 3시',
+  text:'구좌읍 모모장이 장터를 열어요. 업사이클링·친환경 제품을 주로 가지고 나와요.',list:['에코 순환 마트 바로 옆에서 같은 시간에 함께 열어요']},
  art:{no:7,name:'미술체험존',icon:'🎨',c:'#20A39E',x:19.7,y:51.5,when:'오후 2시 ~ 6시',
   text:'모두가 함께 그리는 참여형 미술 활동이에요.',list:['긴 천에 다 같이 그림 그리기','큰 붓으로 대형 초상화 그리기','병뚜껑 곱슬머리 만들기']},
  photo:{no:8,name:'포토존',icon:'📸',c:'#A349C4',x:40.5,y:60.0,when:'오후 2시 ~ 6시',
@@ -857,14 +863,14 @@ var ZONES={
   list:['오후 1시 ~ 2시 · 오프닝(시상식 · 축하공연)','오후 4시 ~ 5시 · 도전! 환경 골든벨','오후 5시 ~ 6시 · 에코 시네마 · 감독과의 만남']},
  rest:{no:10,name:'휴식존',icon:'⛺',c:'#E6BE14',x:46.5,y:81.5,when:'언제든지',
   text:'전시존 뒤 소나무 그늘에서 돗자리를 깔고 쉬어 가요.',list:['폐현수막으로 만든 만국기','폐린넨 가랜드와 작은 작품 전시']},
- food:{no:11,name:'음식체험존',icon:'🥪',c:'#494AC4',x:25.0,y:65.5,when:'오후 2시 ~ 6시',
+ food:{no:11,name:'음식체험존',icon:'🥪',c:'#494AC4',x:44.0,y:90.5,when:'오후 2시 ~ 6시',
   text:'놀이존에서 무대로 가는 길목이에요. 직접 만들어서 먹는 체험이고 모두 무료예요.',booths:'food'},
- hq:{no:12,name:'본부석',icon:'🚩',c:'#965C3C',x:57.1,y:64.8,when:'오후 1시 ~ 6시',
+ hq:{no:12,name:'본부석',icon:'🚩',c:'#965C3C',x:56.5,y:54.5,when:'오후 1시 ~ 6시',
   text:'입구 옆이에요. 궁금한 게 있거나 도움이 필요하면 오세요.',
   list:['행사 운영과 안전 관리 · 의료진과 안전요원','잃어버린 물건 · 안내','축제를 준비한 과정 전시']},
  sign:{no:13,name:'방명록',icon:'✍️',c:'#F080AA',x:63.5,y:73.0,when:'오후 2시 ~ 6시',
   text:'얼굴 모양 판에 내 얼굴을 그리고 축제 감상을 남겨요.',list:['다 같이 그린 얼굴이 모여 큰 작품이 돼요']},
- coffee:{no:14,name:'커피트럭',icon:'☕',c:'#78503C',x:77.0,y:66.0,when:'오후 2시 ~ 6시',
+ coffee:{no:14,name:'커피트럭',icon:'☕',c:'#78503C',x:60.0,y:88.5,when:'오후 2시 ~ 6시',
   text:'청년 발달장애인 바리스타가 운영하는 커피트럭이 와요.',list:['차가 들어오는 입구 쪽에 자리해요']}
 };
 /* 프로그램 카드 상세 */
