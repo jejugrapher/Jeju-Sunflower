@@ -219,8 +219,9 @@ dialog.lb button{display:block;margin:10px auto 0;font-family:"Gamja Flower";fon
 .vids{display:grid;gap:16px}
 .vshorts{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
 .vshorts .yt.tall{max-width:none}
-.vmain{margin-bottom:6px}
-@media(min-width:900px){.vids{grid-template-columns:1fr;gap:22px}.vshorts{grid-template-columns:repeat(5,1fr)}}
+.vwide{display:grid;gap:18px}
+@media(min-width:760px){.vwide{grid-template-columns:1.25fr 1fr;align-items:start}}
+@media(min-width:900px){.vids{grid-template-columns:1fr;gap:24px}.vshorts{grid-template-columns:repeat(5,1fr)}}
 .yt{position:relative;border-radius:14px;overflow:hidden;background:#222;cursor:pointer;box-shadow:0 6px 14px rgba(0,0,0,.15)}
 .yt.wide{aspect-ratio:16/9} .yt.tall{aspect-ratio:9/16;max-width:320px;margin:0 auto}
 .yt img{width:100%;height:100%;object-fit:cover;opacity:.92}
@@ -691,8 +692,12 @@ dialog.zd .meta span{font-size:16.5px;padding:1px 10px;border-radius:10px 13px 9
       <figcaption>직접 캐 보고, 만들어 본 우리 손<br><span style="opacity:.75">구좌 아이들이 그린 당근 그림책에서</span></figcaption>
     </figure>
     <div class="vids">
-      <div class="vmain"><div class="yt wide" data-id="SXNGGDr3BF8"><img src="https://i.ytimg.com/vi/SXNGGDr3BF8/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/SXNGGDr3BF8/hqdefault.jpg'" alt="영상: 아이들이 부르는 밭길 따라 돌담 따라 준비 스케치"><span class="play" aria-hidden="true"></span><button type="button" class="ytbtn" aria-label="준비 스케치 영상 재생"></button></div>
-        <p class="vcap">우리 동네 노래 「밭길 따라 돌담 따라」와 함께한 여름</p><button type="button" class="vshare" data-share="video" data-url="https://youtu.be/SXNGGDr3BF8" data-title="구좌 아이들이 만든 초록별 환경놀이터 준비 스케치">🔗 이 영상 공유</button></div>
+      <div class="vwide">
+        <div><div class="yt wide" data-id="25ecK8wi0rg"><img src="img/vid/long_cover.webp" loading="lazy" decoding="async" alt="영상: 초록별 환경놀이터 안내 영상 2분 55초"><span class="play" aria-hidden="true"></span><button type="button" class="ytbtn" aria-label="행사 안내 영상 재생"></button></div>
+          <p class="vcap"><b>3분이면 다 보여요</b> — 지도 · 부스 · 시간표 한 번에</p><button type="button" class="vshare" data-share="video" data-url="https://youtu.be/25ecK8wi0rg" data-title="10월 10일, 구좌에서 만나요 — 초록별 환경놀이터 안내 영상">🔗 이 영상 공유</button></div>
+        <div><div class="yt wide" data-id="SXNGGDr3BF8"><img src="https://i.ytimg.com/vi/SXNGGDr3BF8/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/SXNGGDr3BF8/hqdefault.jpg'" alt="영상: 아이들이 부르는 밭길 따라 돌담 따라 준비 스케치"><span class="play" aria-hidden="true"></span><button type="button" class="ytbtn" aria-label="준비 스케치 영상 재생"></button></div>
+          <p class="vcap">우리 동네 노래 「밭길 따라 돌담 따라」와 함께한 여름</p><button type="button" class="vshare" data-share="video" data-url="https://youtu.be/SXNGGDr3BF8" data-title="구좌 아이들이 만든 초록별 환경놀이터 준비 스케치">🔗 이 영상 공유</button></div>
+      </div>
       <div class="vshorts">
         <div><div class="yt tall" data-id="OOz-EQfkDLk"><img src="img/vid/s1_cover.webp" loading="lazy" decoding="async" alt="쇼츠: 행사장 지도 먼저 보고 오세요"><span class="play" aria-hidden="true"></span><button type="button" class="ytbtn" aria-label="행사장 지도 먼저 보고 오세요 재생"></button></div>
           <p class="vcap">행사장 지도, 25초면 다 보여요</p><button type="button" class="vshare" data-share="video" data-url="https://youtube.com/shorts/OOz-EQfkDLk" data-title="행사장 지도 먼저 보고 오세요">🔗 이 영상 공유</button></div>
