@@ -159,6 +159,9 @@ p.say{font-size:22px;text-align:center;margin:0 auto 14px;max-width:640px}
 .time{position:relative;margin:0 auto;max-width:640px;padding-left:34px}
 .time::before{content:"";position:absolute;left:14px;top:10px;bottom:10px;width:6px;border-radius:6px;
   background:repeating-linear-gradient(180deg,var(--leaf) 0 14px,transparent 14px 22px);filter:url(#wobble)}
+.time .tel{display:inline-block;margin-top:4px;font-size:.88em;color:var(--soft)}
+.time .what small{font-size:.86em;color:var(--soft)}
+.time .tel a{color:var(--blue);text-decoration:none;border-bottom:1.5px dotted var(--blue)}
 .slot{position:relative;margin:0 0 16px}
 .slot::before{content:"";position:absolute;left:-30px;top:18px;width:22px;height:22px;border-radius:50%;background:var(--c);
   box-shadow:0 0 0 4px var(--paper);filter:url(#wobble)}
@@ -331,6 +334,9 @@ dialog.zd li::before{content:"✿ ";color:var(--c)}
 .prog .more{display:inline-block;margin:8px 0 0 6px;font-family:"Gamja Flower";font-size:19px;color:var(--c)}
 .hot{position:absolute;transform:translate(-50%,-50%);border:0;background:transparent;cursor:pointer;border-radius:14px;padding:0}
 .hot:hover,.hot:focus-visible{outline:4px solid rgba(238,132,36,.75);outline-offset:2px}
+.hot::after{content:"";position:absolute;left:50%;top:50%;width:13px;height:13px;margin:-6.5px 0 0 -6.5px;border-radius:50%;
+  background:var(--c,#EE8424);border:2.5px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.35);opacity:.9}
+.hot:hover::after,.hot:focus-visible::after{transform:scale(1.35)}
 .hot.flash,.pin.flash{animation:flash 1.1s ease-in-out 3}
 .pin.flash{z-index:3}
 #pins .pin{z-index:2}
@@ -375,7 +381,7 @@ dialog.zd .meta span{font-size:16.5px;padding:1px 10px;border-radius:10px 13px 9
 </svg>
 
 <nav class="chips" aria-label="바로가기"><div class="in">
-  <a href="#map">🗺 그림지도</a><a href="#what">무엇을 해요?</a><a href="#time">시간표</a><a href="#who">누가 즐겨요?</a>
+  <a href="#map">🗺 배치도</a><a href="#what">무엇을 해요?</a><a href="#time">시간표</a><a href="#who">누가 즐겨요?</a>
   <a href="#bring">준비물</a><a href="#way">오시는 길</a><a href="#friends">그림 친구들</a><a href="#video">영상</a><a href="#share">공유하기</a>
 </div></nav>
 
@@ -426,14 +432,14 @@ dialog.zd .meta span{font-size:16.5px;padding:1px 10px;border-radius:10px 13px 9
 <!-- ═══ 행사장 그림지도 -->
 <section id="map" style="--c:var(--brown)">
   <div class="wrap">
-    <h2 class="sec hand">행사장 그림지도<small>어디에 뭐가 있을까? 이름표를 눌러 보세요!</small></h2>
+    <h2 class="sec hand">행사장 배치도<small>어디에 뭐가 있을까? 지도에서 이름을 눌러 보세요!</small></h2>
     <svg class="squig"><use href="#sq"/></svg>
         <p class="swipe">← 지도를 옆으로 밀어 보세요 →</p>
     <div class="mapscroll"><div class="mapbox">
-      <img class="base" src="img/map_aerial.webp" alt="초록별 환경놀이터 행사장 조감도 — 제주해녀박물관 야외광장에 입구, 전시존, 체험부스존, 놀이존, 에코 순환 마트, 모모장, 미술체험존, 포토존, 공연무대존, 휴식존, 음식체험존, 본부석, 방명록, 커피트럭이 자리해요" width="2000" height="1126">
+      <img class="base" src="img/map_plan.webp" alt="초록별 환경놀이터 행사장 배치도 — 제주해녀박물관 야외광장 항공사진 위에 입구, 체험부스 1~16번, 놀이존, 에코 순환 마트와 모모장, 미술체험존, 전시존, 공연무대존, 본부석 17·18번, 커피트럭, 휴식존, 먹거리 체험존 19~25번을 표시" width="1600" height="898">
       <div id="pins"></div>
     </div></div>
-    <div class="mapnote"><span>🖍 그림 · 김지환 대표 — 제주해녀박물관 야외광장 조감도</span><span>이름표를 누르면 무엇을 하는지 볼 수 있어요</span></div>
+    <div class="mapnote"><span>🚁 배치도 · 김지환 대표 — 제주해녀박물관 야외광장 (숫자는 부스 번호)</span><span>지도에서 이름을 누르면 무엇을 하는지 볼 수 있어요</span></div>
     <div class="zones" id="zlist"></div>
   </div>
 </section>
@@ -482,7 +488,7 @@ dialog.zd .meta span{font-size:16.5px;padding:1px 10px;border-radius:10px 13px 9
     <div class="grid">
       <article class="card prog" role="button" tabindex="0" data-p="opening" aria-label="오프닝 자세히 보기" style="--c:var(--pink)">
         <div class="pic"><img src="data:image/webp;base64,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" alt=""></div>
-        <div><h3>오프닝 — 다 같이 시작!</h3><p>개회 인사와 함께 <b>환경 사생대회 시상식</b>, 그리고 <b>구좌읍 어린이 합창단</b>과 <b>구좌 청소년 오케스트라</b>의 축하 공연으로 문을 열어요!</p><span class="tag">오후 1시 ~ 2시</span> <span class="tag w">메인무대</span><span class="more">자세히 보기 ›</span></div>
+        <div><h3>오프닝 — 다 같이 시작!</h3><p>개회 인사와 함께 <b>환경 사생대회 시상식</b>, 그리고 축하공연으로 문을 열어요!</p><p style="margin:6px 0 0;font-size:.92em;color:var(--soft)">🎵 구좌읍 어린이 합창단 — 지휘 차애란<br>「노래하는 친구들」 「바다쓰기 100점」 「소문의 낙원」<br>🎻 구좌 청소년 오케스트라 — 지휘 김태근<br>「뱃노래」 「행복을 주는 사람」 「캉캉」 · 성악 협연 바리톤 정재윤</p><span class="tag">오후 1시 ~ 2시</span> <span class="tag w">메인무대</span><span class="more">자세히 보기 ›</span></div>
       </article>
       <article class="card prog" role="button" tabindex="0" data-p="booths" aria-label="환경 체험부스 자세히 보기" style="--c:var(--green)">
         <div class="pic"><img src="data:image/webp;base64,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" alt=""></div>
@@ -502,7 +508,7 @@ dialog.zd .meta span{font-size:16.5px;padding:1px 10px;border-radius:10px 13px 9
       </article>
       <article class="card prog" role="button" tabindex="0" data-p="market" aria-label="에코 순환 마트 자세히 보기" style="--c:var(--green)">
         <div class="pic"><img src="data:image/webp;base64,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" alt=""></div>
-        <div><h3>에코 순환 마트</h3><p>아껴 쓰고 나눠 쓰는 어린이 장터! <b>모모장</b>도 같은 자리에서 함께 열려요.</p><span class="tag">오후 2시 ~ 3시</span><span class="more">자세히 보기 ›</span></div>
+        <div><h3>에코 순환 마트</h3><p>아껴 쓰고 나눠 쓰는 어린이 장터! <b>모모장</b>도 같은 자리에서 함께 열려요.</p><p style="margin:6px 0 0;font-size:.92em;color:var(--soft)">🛍 어린이 벼룩시장 참가 문의 : <a href="tel:01022208206">010-2220-8206</a> (김녕행복한지역아동센터)</p><span class="tag">오후 2시 ~ 3시</span><span class="more">자세히 보기 ›</span></div>
       </article>
       <article class="card prog" role="button" tabindex="0" data-p="food" aria-label="음식 만들기 체험 자세히 보기" style="--c:var(--blue)">
         <div class="pic"><img src="data:image/webp;base64,UklGRhQPAABXRUJQVlA4WAoAAAAQAAAAZwAAjwAAQUxQSAkDAAABoKUAkNzYKRBq9LYsBwiYBl9iQEzh3MJg0EGy3OStvsUTNegYAjE3yJ6YNoKqD0tWd1d1tq+ImAD4//Tu869vy9CLhLoIQUROxZDzwoef3lpGN3JqoDmJ/GVZuyDCIiJsGdDSsrPMj3ehZeDpnsE0AJzWpLUN/NMaGQdwXJkr6+BpSQ7m+Wlp8tbBYUmezHMrcmqMa9ZErtQa1nT3iAjtTPF94HXZ3FuyHyVlMMSPkpQN6aUUoRS1JL7YgYkub+0YknQN2NlK0gYMHZIwGIqS1tmBz4nQih1JarKil+RzZUM1pxO0ASVDsmHIIeiqH358qKE5iWm+Dyy3LHmSmv0omaMWnCT3L3R4kvy7RsN+FJV8G6jNyI+im3w2vWifDi6PalYnIpe3OaCY+FMOZMOHHIIJJ8iRTWhKwVCKUAwqBhbD5REMYMizL4af9F0ygUd9H3KBs7KhhXyPmiaErM9aOPQeMj+q6F6AxkHD16ASNZx0OA1COw3AGuRzMf5QEVSQClKBKlCFU/FKA4NKLAYVIxSDNYRiUDHaUhAUYvRKQm5z70Ep5TVgBWoxUfcFDiscqAXNLlEDAC2FQOhAPSdhsPRSjA/FgJYCM3MBVpsuRjAJmhhkE3AELIYrBcO/I06s8P0fhA7qh+++iYRW7Ee5ZREZD1UUMmI/yt0ztRGuqWqkwDEvbzf4UTafNzWSxPdBol829BIRNzRdiuowSULeEGI84z1v/5KoS76fJekWjiFCu7WfJHIDADhJ4nCfk8i09jZE6r7AQZLTfRhLjivgujh5tvdRNDmvQKNmgPtDPDmuAGtpN3ACoZ2uAfIR0oU5yVGVy0rOihjyEgRoRGfYFFI9f/tFp4Q2USrFuAnNqjdVs1EX2E5GfYjQmjQ9QsyzQdMe4h7tOUDswZq5itZa00P8sy20SwCPkyFHSLsfzXiC1PvRiNEnA9/PFpCHHCukwKxqQsjZIQXWEXoP+TukOa8rYQ1aK6RrLgPWoL1GCszMSa7UgqEOKfDtGi8GwhqMdkghEDr4XzMAVlA4IOQLAAAQMQCdASpoAJAAPlEgjEQjoiEX2x58OAUEtAM4MkA7QH8A/E296GbwgBzqWVur+apWf7n/XfMV3AdUefJ0J50/Qp5hX609MfzH+a/6X96Z3qHANv4B2Y/5Hwd8Y3vSTU2yYTf7nzY71fjnqBfjn9K3lO1HoKQQ2QBwuX2n1AP0v6OuiJ6q9gn+b/3Prgeh2rdvBlyYnZLIHGgJB7nas48Kbhy1XeCbzSnrarpIGUZE2WHLLb7SjNEgZ7SRpmXWzKPbi+JaAXWWOHJM9W+du1P5EVpgJ/fMxWd1Cr+6eyOWIgx6agflUsJckhkLZ+d8JJfWFw/8l/I9v8pXAJiT/NxmRFhLaBGBInwkEyMp1lu1XrlHsn+oQzsRTv71xsEXBtHgpOZBKmsZT7xeKprlPOcQFPkEzaisvC+ZgHS7xJruv8obrmCd/m7kcy//Oh1bJYqa1K9vOMKUnPJ4u1vPGVU0Wl1gkdzIuhVTMdMcnVn7dNDmbMlsSJjK16daV53Png7ubTs0Gdz8Mj/8A/OIOr2yegD+/aoH9Dd1rQfd6EYPyfbDQD3p7gZkmxlXvXIbOXBwmnW4LMM4jjcuRP9TaZ1CcUPJQQHR7sxjd1L6Sf5e86XzDvPmVbAWgWp8Rhi/TUz5DoO/a2W3cyebt01+pltbEd0maWeFU2gsC3/bfwexPrnL9rl9YFyg63OT9PFW7XjKRZPM9QFmL7o3MY3fczD6aNApmRS8XiElu5B9InqLKVDuhwVJ3eJ59eNakjDsFUTitlqxuv9N4nbzoUBuOktdf7VSVWauu+lC5wbtpFbLIGTbhY8IZPEPCh3O6psaHwo62AAAVvltgSjOlXha9Acx//jx//l4Dp9I0z8QGwCjvlLuwmr7lrj9ol7sI2hvwyegz5dZArwlgdadVDb+Fn66FZS7IPfDyJi5GQ6e00sOmhiTGFkfPGWodLw/bT/bb5vdBdMuI0dilY6DUacf/4tbPPSUTtyYKBZysJZ/ku3UWMMolVHWbXw0EavJ9kcISLVvs4SrF4an+Pn03c7F2nHlWiLwwoEx3q57Yh4gCHbZpp+P0FqTGlcF93iQW67WGMEak9FmMiGG9WMSjUbRfXdHjYs42aGzAtCFrOWoqEMwqnR2LyOqDWPOhufS3l/Br+/QfWmueKdiUf7IzuZp5Dx6mzCsjSakmbToSl+sacFFBdRKXM/cayy/Smyx1R3FSyjglTtx4eW03H27CK9VK02aGsbmspVWPo2iZfcOyL9FIOVnkPNawxCuWrh5+nlYL9xd3IjRiZrmdHzOzDkGbftt6AmxgDkXtcrO8M6xlwy9bV/Dj3EvvkSyesV0+KsitjsXysp/fJHgv5M4mE/8SJQU+KI09DpwPxID9oxUjdexPJ75Vbbf0UornqK+UILP24hxsdEk7zGJyUgr9GP8aelwcelQokZiTj4F+HKQY+hROllYqiaukNtqSnGGYo/wJHxcRfijk0irtvwJhLQi1Zzl+SOj00AVbo1rkTrmKtN1Olmj/RJqVIsPs/GCLpk6zDKr50MIl6MMRGJ3jeER0xdb89pwjwJybM2kSlibdyoJIaraujThGMD+v67fpYOn3e85+uPRSWUW5bFNd3GBA4TmuFDQ1oc7Y4mZhxrCaa3rXN3XEcHiKZ2XPmBbWC7eA778it1HyB6Bi4rRW5BHlkiuLlH4mxy/j0yY0+i4s2nr8SirNUanKh/D9py0Iyk6OSandkH6z4l1ID1pfWj+V8bY5Gv16TqaoYsRnUE2I9JIEUxUKZtly7+JZaQAA9lIwZz1TfT7I7P3QdWUJ9zJTnTpsg3LIU1E+Mkcj/nPmIsPN+BtkIg+jwNTTJ5L25JeGeuaBStWuPcOrTE4TglOhExEaz5Pn4xIjs93vFNK/YvCJ6VlcIVr6l9I/WLjSI7yOsG0LKFOJs7EvmfknSFVDYSvBmW9/Ip9VR2k1BJVQTQDCfYWNi/tjQ3OdZ87g46qoj/Dw+67to1wM34upm2cFd+zhN8JRamQZylkC4BpTiqjsjb3pqt63+saVydUN2cN7SadzBpWcNSQ8vz9PUkUPe6+wPucGE8kFASEBnqKLjxhz48r8N+TsThc2nvwfBQOmsIrV+LYXGkbmOXTHSFmKFCAmllM3Aws4jCJAKeIpFcvZa+r5KRSrU9PBFcQkAVb/S4OKhtpapshtV+52kZduld2rLl8kn5caQNFZIRGekTovavlZka6c44cuPnnuiUubqwvRBCCwr83ose7c67MQCH11neYkaKrfVRQLhFiL58zWK+Pu4xqqyd8kSkdl3a5PYBPi8TFxXhwiJGCk+e3XXpsTmGPb3LW7Fsz5SQdGcZLaaVkwCdtpSIB7Q6XbF5+ce2k392UD8WRDaW+dXIwUmlMx6SiY3nenV6cgFMN5Uoq1bZ18ILwAY9DabnmknbeEW3U7tWCKSd5U3CvfW2eQexDW/DjmnPFZXHvFMib4l9CQ/7B7KPau3j1ssTO5NCjFRFa77MS1aCfs3FP5tqv2mV2cs6Esoi6Gtonxt5QNOCNPcJOqKs8+/snNr3pjzN6a2lDHLbvDZXdxsi2vJvP2pIhHzsAFmnDDc7syPSHw8h8JLX0d6CGL4pcBY9AZBs9Os6AFvBOg6E6ykaLl7U/0yIXv5VkA7MlK+jNqtXSwp64gjeD9rJrIqsskKoC6+QVJyXcgNPF/V2ym6ihZ7PgHnGZ3ao5qsQjnf7u8T1rZ2pF+W7H+yPujmWN4V/ahta6o85qWef3WSBfm2LcBapbnIwV3w4Vhq/kQDSfwCtugwMbFoIdgFapZhjQA5JE5N+nKWb26u7/kS1tRxTL/SBzYZy37I5eD/4llxi9qKDcpZKCCKzhlGmWaD6T8N0VEYEy/82YGh/XqQoO57+D8ljl9AgrMx65P1gnR5Jg6IMXGp/apCbTKH9iqnDkAq6AB16G7SGGqgrIv3dh3cH3X76rx1XbIH6kVf2I7aJTf7QC4z1Lw+8fqpI3pDfu9JA0RfacoqTntHATgPzIfwuHQH+Nwa2+yrpaq3KStxqAvURra82EcTuMtNaeMwbf0A9406Olf5al4RE6157uJFv8qY3PBzU0VHGt4UKMB3+0K6ZP+A4RMRqbrPWKN0aqhR7QYHRO15AoHqlQKDo/x+OS07HtJJuV/JL3ZTgldlsXPEq65XHG9unZ5tcgQAv7SXQG5RMt+3PYtUHMctGaYdv4vzvWMWdxBhKfvVvlg1+5194EDJBWpdevE4PaaFLPmnDb+uhfF8faH8LCUt9zDhS2axsFHxMyT6+0ewG9nlEbYwMqkF1MJJPXA7xePsYHv75EIzuHTja5rJjVhXs+53XKq4j/sykU2d3tnbzwCLOaefHbEn9PlZCxUWa1L34YsgNpoItzwIBVoRiI2dP7Q2pvy47d+6+p+s5eCvyz9P+J3rlSzWEySsJe/lsTmQ1etioSjMw7N/fvk/lJX2yLcGfvNQbNc5Ic9kAK37oEa/NZjpNRLnt4CxGjFR4rxahS1IufppeHku54PikqIffo+rpMzpZQuAyOtLStW2ZNOazARdM8Ke9XcT86hpn4wctV14hDeOZ8gtliUGeDlarLDzJXDYZ3kCk6a+hoP9Aw+mWedIkm+KSQotmDCSZNze4fBv5hQAiqussQHPyC1YWpJCSP+tpeXANGToiZh/gEUaF5lfFjyQ/pfhuDfnIRqeAb0OgFgW23+W0wfKH6xlGeAgBmPqFTI1E12dkjX/LjdYMsPGTvst1t+bfDbqb/xlnOEanrTrwIra38ZIpq1ygxgiqJ6jRpnCUsV/K2mCikzJP9pb86zeNxyV49dfMYotYZY3sQJPjlG2whaCC3b/Xn6ukeGXiXPZIJu5fl9p9x4RCHj/oYrW4VObnIJXrzurEUI5sd5DY8C4MVbRaV5Qf/Svvx+X9dI5xKvw5xAY4ElU9plCJB/2WPWUYmmTx820VqMYmpcwfyOv7hgJlATde9U3UvZPJmdlbwBRQPfE5m5Ah6C51iG5Ffxu72/xuvZdk/FlM/nBczy1wOx8wAKqSca7Y6CJyOMUgEMAAAAA==" alt=""></div>
@@ -563,13 +569,13 @@ dialog.zd .meta span{font-size:16.5px;padding:1px 10px;border-radius:10px 13px 9
     <div class="card daybar" style="--c:var(--blue)">10월 10일 토요일 · 오후 1시 ~ 6시</div>
     <div class="time">
       <div class="slot" style="--c:var(--pink)"><div class="when">오후 1:00 ~ 2:00</div>
-        <div class="what"><b>오프닝</b><br>개회 인사 · 내빈 소개 · 환경 사생대회 시상식 · 축하공연(어린이 합창단 · 청소년 오케스트라)<br>메인무대</div></div>
+        <div class="what"><b>오프닝</b><br>개회 인사 · 내빈 소개 · 환경 사생대회 시상식<br><b>축하공연</b> — 구좌읍 어린이 합창단 <small>(지휘 차애란 · 노래하는 친구들, 바다쓰기 100점, 소문의 낙원)</small><br><span style="padding-left:4.6em">구좌 청소년 오케스트라 <small>(지휘 김태근 · 뱃노래, 행복을 주는 사람, 캉캉 / 성악 협연 바리톤 정재윤)</small></span><br>메인무대</div></div>
       <div class="slot" style="--c:var(--green)"><div class="when">오후 2:00 ~ 6:00</div>
         <div class="what"><b>초록별 놀이마당</b><br>환경 체험부스 · 작품 전시 · 놀이마당(놀이카) · 음식 만들기 체험 · 초록별 보물찾기</div></div>
       <div class="slot" style="--c:var(--brown)"><div class="when">오후 2:00 ~ 3:00</div>
-        <div class="what"><b>에코 순환 마트</b> (어린이 장터)<br><b>모모장</b>도 같은 자리에서 함께 열어요</div></div>
+        <div class="what"><b>에코 순환 마트</b> (어린이 장터)<br><b>모모장</b>도 같은 자리에서 함께 열어요<br><span class="tel">참가 문의 : <a href="tel:01022208206">010-2220-8206</a> (김녕행복한지역아동센터)</span></div></div>
       <div class="slot" style="--c:var(--orange)"><div class="when">오후 4:00 ~ 5:00</div>
-        <div class="what"><b>도전! 환경 골든벨</b><br>메인무대</div></div>
+        <div class="what"><b>도전! 환경 골든벨</b><br>메인무대<br><span class="tel">참가 희망자는 <b>본부석에서 현장 접수</b></span></div></div>
       <div class="slot" style="--c:var(--blue)"><div class="when">오후 5:00 ~ 6:00</div>
         <div class="what"><b>에코 시네마</b> 「조수웅덩이 바다의 시작」 · 임형묵 감독과 만남<br>메인무대</div></div>
     </div>
@@ -825,32 +831,32 @@ dialog.zd .meta span{font-size:16.5px;padding:1px 10px;border-radius:10px 13px 9
 /* ═════════ 데이터 (출처: 존별기획안 · 센터 초대장 원고 · 9/8·9/17 카톡 · 김지환 대표 부스 목록 9/18) */
 var BOOTH_NOTE='그림은 그 부스에서 무엇을 하는지 보여 주는 그림이에요.';
 var BOOTHS={
- exp:[[1,'제주녹색구매지원센터','행운 팡팡! 녹색소비 환경 퀴즈'],
-      [2,'덕천곤충영농조합','작은숲속! 덕천마을 곤충체험'],
-      [3,'덕천곤충영농조합','나만의 곤충 디오라마 만들기'],
-      [4,'클로바유원','숲속 나비와 만나요!'],
-      [5,'구좌읍교육발전협의회','푸른 바다거북을 지켜요, 환경 손수건'],
+ exp:[[1,'덕천곤충영농조합','작은숲속! 덕천마을 곤충체험'],
+      [2,'덕천곤충영농조합','나만의 곤충 디오라마 만들기'],
+      [3,'클로바유원','숲속 나비와 만나요!'],
+      [4,'구좌읍교육발전협의회','푸른 바다거북을 지켜요, 환경 손수건'],
+      [5,'제주녹색구매지원센터','행운 팡팡! 녹색소비 환경 퀴즈'],
       [6,'꽃샘공방','폐품의 새활용, 내 손으로 만드는 수경 화분'],
       [7,'세화초 생태환경동아리','지구를 지키는 아름다운 매듭, 보자기 가방'],
       [8,'희망나래꿈터','병뚜껑의 알록달록 변신, 업사이클 팔찌'],
       [9,'다시바다','폐해녀복의 재탄생, 제주 고래 키링'],
       [10,'제주별작업실','고소한 커피 향 품은 친환경 키링'],
-      [11,'삼촌네점빵 · 동녘도서관','지구와 책 사이, 단추 책갈피'],
-      [12,'리어플라스틱','세상에 하나뿐인 업사이클링 노트'],
+      [11,'삼춘네점빵 · 동녘도서관','지구와 책 사이, 단추 책갈피'],
+      [12,'리어플라스틱','세상에 하나뿐인 나만의 업사이클링 노트'],
       [13,'함덕파란집','버려진 나무에 피어난 벽걸이 화병'],
       [14,'평대초 학부모회','바다가 준 선물, 반짝이는 바다유리 반지'],
       [15,'지속가능환경교육센터','바다의 아픔을 다듬어 만드는 빛깔 목걸이'],
       [16,'해바라기지역아동센터','지구를 사랑한 오늘, 구좌 4컷 인생사진']],
- food:[[17,'아시아기후변화교육센터','내가 굴린 페달, 과일 씽씽 생주스!'],
-      [18,'지속가능환경교육센터','체력 충전! 빙글빙글 에코 솜사탕'],
-      [19,'소비자교육중앙회 구좌분회','분리수거 100점, 바삭바삭 미션 와플'],
-      [20,'우리하도지역아동센터','신기한 물방울 실험실 & 뻥튀기 표정 놀이'],
-      [21,'해바라기지역아동센터','얌얌 소세지 먹고, 톡톡 환경 팔찌 만들고!'],
-      [22,'김녕행복한지역아동센터','지구 상식 쏙쏙! 영양 만점 에코 샌드위치'],
-      [23,'종달지역아동센터','쿵덕쿵 도장 쾅! 달콤한 전통 꿀떡 만들기'],
-      [24,'플로베','향기 나는 쉼터, 찾아가는 에코 커피트럭']],
- hq:[[25,'운영본부','종합 안내 & 스탬프 투어'],
-      [26,'제주시정신건강복지센터','마음 건강도 푸르게, 생명사랑 캠페인']]
+ food:[[19,'아시아기후변화교육센터','내가 굴린 페달, 과일 씽씽 생주스!'],
+      [20,'지속가능환경교육센터','체력 충전! 빙글빙글 에코 솜사탕'],
+      [21,'소비자교육중앙회 구좌분회','분리수거 100점, 바삭바삭 미션 와플'],
+      [22,'우리하도지역아동센터','신기한 물방울 실험실 & 뻥튀기 표정 놀이'],
+      [23,'해바라기지역아동센터','얌얌 쏘세지 먹고, 톡톡 환경 팔찌 만들고!'],
+      [24,'김녕행복한지역아동센터','지구 상식 쏙쏙! 영양 만점 에코 샌드위치'],
+      [25,'종달지역아동센터','쿵덕쿵 도장 쾅! 달콤한 전통 꿀떡 만들기'],
+      [80,'플로베','향기 나는 쉼터, 찾아가는 에코 커피트럭']],
+ hq:[[17,'운영본부','종합 안내 & 스탬프 투어'],
+      [18,'제주시정신건강복지센터','마음 건강도 푸르게, 생명사랑 캠페인']]
 };
 /* 놀이카 영상 — 세상놀이연구소(온달)에서 해바라기센터로 사용 허가 (2026-09-10 메일) */
 var NORICAR=[['TWw3v2GyXXI','노리카 축제 — 재활용 나눔 자원순환축제','세상놀이연구소'],
@@ -859,46 +865,43 @@ var NORICAR=[['TWw3v2GyXXI','노리카 축제 — 재활용 나눔 자원순환�
              ['9J1S5egzvnc','너만의 놀이를 펼쳐봐! 찾아가는 놀이터','MBC 뉴스데스크']];
 /* 존: x,y = 크레파스 지도 위 이름표 가운데(%), w = 이름표 폭(%) */
 var ZONES={
- gate:{no:1,name:'입구',icon:'🌸',c:'#8DBA2B',x:49.0,y:46.5,when:'오후 1시부터',
-  text:'전시존과 놀이존 사이, 꽃 아치를 지나 축제장으로 들어와요.',
-  list:['구좌 친구들이 크레파스로 그린 현수막이 놀이존 쪽에서 보여요','박물관 쪽이 아니라 화장실·장터 쪽에서 올라오면 바로예요']},
- exhibit:{no:2,name:'전시존',icon:'🖼',c:'#26A6DB',x:66.5,y:62.5,when:'오후 2시 ~ 6시',
-  text:'박물관에서 놀이존으로 가는 길을 따라 작품이 전시돼요. 어린이 도슨트가 직접 설명해 줘요!',
-  list:['삼각 큐브 전시대 — 들락날락 드나들 수 있는 작은 놀이터이기도 해요','업사이클링 작품 · 환경 사생대회 그림']},
- exp:{no:3,name:'체험부스존',icon:'✂️',c:'#F5891F',x:47.5,y:28.7,when:'오후 2시 ~ 6시',
-  text:'항일기념공원 둘레를 따라 부스 16곳이 동그랗게 모여 있어요. 돌바닥 길로 어디서든 들어갈 수 있어요.',booths:'exp'},
- play:{no:4,name:'놀이존',icon:'🪵',c:'#E53935',x:39.5,y:39.5,when:'오후 2시 ~ 6시',
-  text:'항일기념공원 가운데 잔디밭에서 신나게 놀아요! 놀이는 옹달쌤과 함께하는 놀이카(세상놀이연구소)가 함께해요.',
+ gate:{no:1,name:'입구',icon:'🌸',c:'#8DBA2B',x:31.9,y:36.2,when:'오후 1시부터',
+  text:'놀이존 옆, 꽃 아치를 지나 축제장으로 들어와요.',
+  list:['구좌 친구들이 크레파스로 그린 현수막이 반겨 줘요','바로 옆이 본부석이라 안내를 받을 수 있어요']},
+ exp:{no:2,name:'체험부스존',icon:'✂️',c:'#F5891F',x:20.0,y:28.0,when:'오후 2시 ~ 6시',
+  text:'원형 잔디밭 둘레를 따라 환경 체험부스 열여섯 곳이 1번부터 16번까지 늘어서 있어요.',booths:'exp'},
+ play:{no:3,name:'놀이존',icon:'🪵',c:'#E53935',x:38.4,y:29.0,when:'오후 2시 ~ 6시',
+  text:'부스에 둘러싸인 가운데 잔디밭에서 신나게 놀아요! 놀이는 옹달쌤과 함께하는 놀이카(세상놀이연구소)가 함께해요.',
   list:['버려진 나무로 망치질 목공 체험','종이상자로 탑 쌓기 · 집 짓기','세계 놀이 — 몰키, 링가링가, 딱지접기'],vids:1},
- market:{no:5,name:'에코 순환 마트 & 모모장',icon:'🧺',c:'#43B047',x:35.5,y:15.9,when:'오후 2시 ~ 3시',
-  text:'작은 원형광장에서 어린이 장터가 열려요. 구좌읍 모모장도 같은 자리에서 함께 열립니다.',
-  list:['어린이 벼룩시장 — 아껴 쓰고 나눠 써요','모모장 — 업사이클링·친환경 제품 위주','보물찾기 환경순환장터 — 중고 물품 물물교환']},
- art:{no:6,name:'미술체험존',icon:'🎨',c:'#20A39E',x:17.5,y:47.0,when:'오후 2시 ~ 6시',
-  text:'모두가 함께 그리는 참여형 미술 활동이에요.',
+ market:{no:4,name:'에코 순환 마트 & 모모장',icon:'🧺',c:'#43B047',x:39.9,y:13.7,when:'오후 2시 ~ 3시',
+  text:'위쪽 작은 원형광장에서 어린이 장터가 열려요. 구좌읍 모모장도 같은 자리에서 함께 열립니다.',
+  list:['어린이 벼룩시장 — 아껴 쓰고 나눠 써요 (참가 문의 010-2220-8206 김녕행복한지역아동센터)','모모장 — 업사이클링·친환경 제품 위주','보물찾기 환경순환장터 — 중고 물품 물물교환']},
+ art:{no:5,name:'미술체험존',icon:'🎨',c:'#20A39E',x:50.0,y:25.0,when:'오후 2시 ~ 6시',
+  text:'부스 링 오른편에서 모두가 함께 그리는 미술 활동을 해요.',
   list:['알록달록 분필 그림터 — 친환경 분필로 바닥에 그려요','긴 천에 다 같이 그림 그리기','큰 붓으로 대형 초상화 그리기','병뚜껑 곱슬머리 만들기']},
- photo:{no:7,name:'포토존',icon:'📸',c:'#A349C4',x:44.0,y:60.0,when:'오후 2시 ~ 6시',
-  text:'해녀복을 입고 찍는 구좌 인생네컷과 환경 포토존이 있어요.',list:['구좌 인생네컷 — 해녀복과 소품을 빌려 입고 네컷 사진','식물 · 동물 · 해양생물 포토존']},
- stage:{no:8,name:'공연무대존',icon:'🎤',c:'#6E7887',x:14.1,y:71.7,when:'오후 1시 ~ 6시',
+ exhibit:{no:6,name:'전시존',icon:'🖼',c:'#26A6DB',x:56.8,y:58.1,when:'오후 2시 ~ 6시',
+  text:'돌바닥 길을 따라 삼각 큐브 전시대가 늘어서요. 어린이 도슨트가 직접 설명해 줘요!',
+  list:['업사이클링 작품 · 환경 사생대회 그림','수업 장면 흑백사진을 줄에 앞뒤로 걸어 전시해요','큐브는 들락날락 드나들 수 있는 작은 놀이터이기도 해요']},
+ stage:{no:7,name:'공연무대존',icon:'🎤',c:'#6E7887',x:14.0,y:48.5,when:'오후 1시 ~ 6시',
   text:'야외공연장이 메인무대예요. 오프닝과 골든벨, 영화가 모두 이곳에서 열려요.',
-  list:['오후 1시 ~ 2시 · 오프닝(시상식 · 축하공연)','오후 4시 ~ 5시 · 도전! 환경 골든벨','오후 5시 ~ 6시 · 에코 시네마 · 감독과의 만남']},
- rest:{no:9,name:'휴식존',icon:'⛺',c:'#E6BE14',x:46.5,y:81.5,when:'언제든지',
-  text:'전시존 뒤 소나무 그늘에서 돗자리를 깔고 쉬어 가요.',list:['폐현수막으로 만든 만국기','폐린넨 가랜드와 작은 작품 전시']},
- food:{no:10,name:'음식체험존',icon:'🥪',c:'#494AC4',x:44.0,y:90.5,when:'오후 2시 ~ 6시',
-  text:'휴식존 아래 천막 줄이에요. 직접 만들어서 먹는 체험이고 모두 무료예요.',booths:'food'},
- hq:{no:11,name:'본부석',icon:'🚩',c:'#965C3C',x:30.0,y:55.0,when:'오후 1시 ~ 6시',
-  text:'체험부스·놀이존에서 공연무대로 가는 길목이에요. 궁금한 게 있거나 도움이 필요하면 오세요.',
-  list:['종합 안내와 리플릿 · 스탬프 투어 확인','제주시정신건강복지센터 생명사랑 캠페인','행사 운영과 안전 관리 · 잃어버린 물건'],booths:'hq'},
- sign:{no:12,name:'방명록',icon:'✍️',c:'#F080AA',x:33.0,y:67.0,when:'오후 2시 ~ 6시',
-  text:'본부석 옆이에요. 얼굴 모양 판에 내 얼굴을 그리고 축제 감상을 남겨요.',list:['다 같이 그린 얼굴이 모여 큰 작품이 돼요']},
- coffee:{no:13,name:'커피트럭',icon:'☕',c:'#78503C',x:19.0,y:24.0,when:'오후 2시 ~ 6시',
-  text:'배 조형물 곁, 장터와 체험부스 사이에 커피트럭이 섭니다.',
-  list:['플로베 — 텀블러·친환경 컵에 담아 주는 커피와 음료','청년 발달장애인 바리스타가 함께해요']}
+  list:['오후 1시 ~ 2시 · 오프닝 — 사생대회 시상 · 어린이 합창단 · 청소년 오케스트라','오후 4시 ~ 5시 · 도전! 환경 골든벨 (본부석 현장 접수)','오후 5시 ~ 6시 · 에코 시네마 「조수웅덩이 바다의 시작」 · 감독과의 대화']},
+ hq:{no:8,name:'본부석',icon:'🚩',c:'#965C3C',x:26.0,y:47.5,when:'오후 1시 ~ 6시',
+  text:'입구와 무대 사이에 있어요. 궁금한 게 있거나 도움이 필요하면 오세요.',
+  list:['종합 안내 · 체험 카드와 스탬프 투어','제주시정신건강복지센터 생명사랑 캠페인','환경 골든벨 참가 현장 접수','방명록 — 얼굴 그리고 감상 남기기','행사 운영과 안전 관리 · 잃어버린 물건'],booths:'hq'},
+ coffee:{no:9,name:'커피트럭',icon:'☕',c:'#78503C',x:39.5,y:43.0,when:'오후 2시 ~ 6시',
+  text:'입구 옆에 커피트럭이 섭니다.',
+  list:['플로베 — 텀블러·친환경 컵에 담아 주는 커피와 음료']},
+ rest:{no:10,name:'휴식존',icon:'⛺',c:'#E6BE14',x:36.9,y:65.0,when:'언제든지',
+  text:'가운데 나무 그늘이에요. 돗자리를 깔고 쉬어 가요.',
+  list:['폐현수막으로 만든 만국기','폐린넨 가랜드와 작은 작품 전시']},
+ food:{no:11,name:'음식체험존',icon:'🥪',c:'#494AC4',x:33.8,y:75.9,when:'오후 2시 ~ 6시',
+  text:'아래쪽 천막 줄이 먹거리 체험존이에요(19~25번). 직접 만들어서 먹는 체험이고 모두 무료예요.',booths:'food'}
 };
 /* 프로그램 카드 상세 */
 var PROG={
  opening:{t:'오프닝 — 다 같이 시작!',c:'#E27BA7',when:'오후 1시 ~ 2시',where:['stage'],
   what:'행사의 문을 여는 시간이에요. 개회 인사와 내빈 소개를 하고, 환경 사생대회 시상식과 축하 공연이 이어져요.',
-  list:['개회 인사 · 내빈 소개 · 축하 말씀','환경 사생대회 시상식','축하공연 — 구좌읍 어린이 합창단, 구좌 청소년 오케스트라(성악 협연)'],
+  list:['개회 인사 · 내빈 소개 · 축하 말씀','환경 사생대회 시상식','축하공연 · 구좌읍 어린이 합창단 — 지휘 차애란 / 「노래하는 친구들」 「바다쓰기 100점」 「소문의 낙원」','축하공연 · 구좌 청소년 오케스트라 — 지휘 김태근 / 「뱃노래」 「행복을 주는 사람」 「캉캉」 · 성악 협연 바리톤 정재윤'],
   tip:'체험부스는 오프닝이 끝난 오후 2시부터 문을 열어요.'},
  booths:{t:'환경 체험부스',c:'#3E8E41',when:'오후 2시 ~ 6시',where:['exp','food'],
   what:'지구를 살리는 만들기와 체험 부스예요. 보고 듣기만 하는 게 아니라 직접 만들고 실천해 보는 체험이고, 어른도 아이도 누구나 참여할 수 있어요.',booths:['exp','food']},
@@ -930,7 +933,7 @@ var PROG={
   what:'행사장 곳곳에 숨어 있는 보물을 찾아보세요. 보물을 찾은 친구에게는 선물을 드려요!',tip:'보물은 행사장 곳곳에 숨어 있어요!'},
  goldenbell:{t:'도전! 환경 골든벨',c:'#EE8424',when:'오후 4시 ~ 5시',where:['stage'],
   what:'환경 상식 퀴즈에 도전하는 골든벨이에요. 미리 신청한 친구들이 메인무대에서 함께 도전하고, 우수자에게는 시상이 있어요.',
-  tip:'현장 본부석에서도 신청할 수 있어요.'},
+  tip:'참가 희망자는 본부석에서 현장 접수해요.'},
  cinema:{t:'에코 시네마',c:'#2F5DA8',when:'오후 5시 ~ 6시',where:['stage'],
   what:'해가 질 때 메인무대 LED 화면으로 환경 영화 「조수웅덩이 바다의 시작」을 함께 봐요. 영화를 만든 임형묵 감독님도 만날 수 있어요.',
   tip:'개인 돗자리를 챙기면 잔디밭에 앉아 편하게 볼 수 있어요.'}
@@ -956,7 +959,7 @@ var PROG={
   }
   function boothHTML(key,c){
     return '<div class="booths">'+BOOTHS[key].map(function(b){
-      var n=('0'+b[0]).slice(-2);
+      var n=('0'+b[0]).slice(-2); var lab=(b[0]===80?'☕':b[0]);
       return '<div class="booth"><img src="img/booth/b'+n+'.webp" alt="'+esc(b[2])+' 예시 그림" loading="lazy"><div><b><span class="no" style="background:'+c+'">'+b[0]+'</span>'+esc(b[2])+'</b><span>'+esc(b[1])+'</span></div></div>';
     }).join('')+'</div>';
   }
@@ -1004,7 +1007,7 @@ var PROG={
     openDlg(h,p.c);
   }
   function goZone(id){
-    var el=document.querySelector('.pin[data-z="'+id+'"]'); if(!el) return;
+    var el=document.querySelector('.hot[data-z="'+id+'"]'); if(!el) return;
     var box=document.querySelector('.mapscroll');
     document.getElementById('map').scrollIntoView({behavior:'smooth',block:'start'});
     if(box&&box.scrollWidth>box.clientWidth){ box.scrollLeft=Math.max(0, el.offsetLeft - box.clientWidth/2); }
@@ -1017,29 +1020,12 @@ var PROG={
   var pins=document.getElementById('pins'), zl=document.getElementById('zlist');
   Object.keys(ZONES).forEach(function(id){
     var z=ZONES[id];
-    var b=document.createElement('button'); b.type='button'; b.className='pin'; b.dataset.z=id;
-    b.style.left=z.x+'%'; b.style.top=z.y+'%'; b.style.setProperty('--c',z.c);
-    b.innerHTML='<i>'+z.icon+'</i>'+z.no+'. '+esc(z.name);
-    b.setAttribute('aria-label',z.no+'번 '+z.name+' 자세히 보기'); b.onclick=function(){ openZone(id); }; pins.appendChild(b);
+    var b=document.createElement('button'); b.type='button'; b.className='hot'; b.dataset.z=id;
+    b.style.left=z.x+'%'; b.style.top=z.y+'%'; b.style.width='9%'; b.style.height='6%'; b.style.setProperty('--c',z.c);
+    b.setAttribute('aria-label',z.name+' 자세히 보기'); b.onclick=function(){ openZone(id); }; pins.appendChild(b);
     var c=document.createElement('button'); c.type='button'; c.className='zbtn'; c.style.setProperty('--c',z.c);
-    c.innerHTML='<i>'+z.icon+'</i>'+z.no+'. '+esc(z.name); c.onclick=function(){ goZone(id); }; zl.appendChild(c);
+    c.innerHTML='<i>'+z.icon+'</i>'+esc(z.name); c.onclick=function(){ goZone(id); }; zl.appendChild(c);
   });
-  // 길잡이용 이름표(누르는 곳 아님)
-  [['🅿️ 주차장',66.0,10.5],['🏛 해녀박물관',89.0,86.0]].forEach(function(f){
-    var e=document.createElement('span'); e.className='pin flat';
-    e.style.left=f[1]+'%'; e.style.top=f[2]+'%'; e.textContent=f[0]; pins.appendChild(e);
-  });
-  // 본문에 펼친 부스 목록(큰 그림)
-  [['exp','blist-exp','#43B047'],['food','blist-food','#2F5DA8']].forEach(function(g){
-    var box=document.getElementById(g[1]); if(!box) return;
-    box.innerHTML = BOOTHS[g[0]].map(function(b){
-      var n=('0'+b[0]).slice(-2);
-      return '<div class="bcard"><img src="img/booth/b'+n+'.webp" alt="'+esc(b[2])+' 그림" loading="lazy" decoding="async">'
-        + '<b><span class="no" style="background:'+g[2]+'">'+b[0]+'</span>'+esc(b[2])+'</b>'
-        + '<span>'+esc(b[1])+'</span></div>';
-    }).join('');
-  });
-
   // 프로그램 카드
   document.querySelectorAll('.prog[data-p]').forEach(function(card){
     card.addEventListener('click',function(){ openProg(card.dataset.p); });
