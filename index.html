@@ -432,14 +432,14 @@ dialog.zd .meta span{font-size:16.5px;padding:1px 10px;border-radius:10px 13px 9
 <!-- ═══ 행사장 그림지도 -->
 <section id="map" style="--c:var(--brown)">
   <div class="wrap">
-    <h2 class="sec hand">행사장 배치도<small>어디에 뭐가 있을까? 지도에서 이름을 눌러 보세요!</small></h2>
+    <h2 class="sec hand">행사장 배치도<small>어디에 뭐가 있을까? 이름표를 눌러 보세요!</small></h2>
     <svg class="squig"><use href="#sq"/></svg>
         <p class="swipe">← 지도를 옆으로 밀어 보세요 →</p>
     <div class="mapscroll"><div class="mapbox">
-      <img class="base" src="img/map_plan.webp" alt="초록별 환경놀이터 행사장 배치도 — 제주해녀박물관 야외광장 항공사진 위에 입구, 체험부스 1~16번, 놀이존, 에코 순환 마트와 모모장, 미술체험존, 전시존, 공연무대존, 본부석 17·18번, 커피트럭, 휴식존, 먹거리 체험존 19~25번을 표시" width="1600" height="898">
+      <img class="base" src="img/map_plan.webp" alt="초록별 환경놀이터 행사장 배치도 — 제주해녀박물관 야외광장 항공사진에 체험부스 1~16번, 본부석 17·18번, 먹거리 체험 19~25번 위치 표시" width="1600" height="900">
       <div id="pins"></div>
     </div></div>
-    <div class="mapnote"><span>🚁 배치도 · 김지환 대표 — 제주해녀박물관 야외광장 (숫자는 부스 번호)</span><span>지도에서 이름을 누르면 무엇을 하는지 볼 수 있어요</span></div>
+    <div class="mapnote"><span>🚁 배치도 · 김지환 대표 — 제주해녀박물관 야외광장 <b>(동그란 숫자는 부스 번호)</b></span><span>이름표를 누르면 무엇을 하는지 볼 수 있어요</span></div>
     <div class="zones" id="zlist"></div>
   </div>
 </section>
@@ -865,36 +865,36 @@ var NORICAR=[['TWw3v2GyXXI','노리카 축제 — 재활용 나눔 자원순환�
              ['9J1S5egzvnc','너만의 놀이를 펼쳐봐! 찾아가는 놀이터','MBC 뉴스데스크']];
 /* 존: x,y = 크레파스 지도 위 이름표 가운데(%), w = 이름표 폭(%) */
 var ZONES={
- gate:{no:1,name:'입구',icon:'🌸',c:'#8DBA2B',x:31.9,y:36.2,when:'오후 1시부터',
+ gate:{no:1,name:'입구',icon:'🌸',c:'#8DBA2B',x:29.7,y:37.5,when:'오후 1시부터',
   text:'놀이존 옆, 꽃 아치를 지나 축제장으로 들어와요.',
   list:['구좌 친구들이 크레파스로 그린 현수막이 반겨 줘요','바로 옆이 본부석이라 안내를 받을 수 있어요']},
- exp:{no:2,name:'체험부스존',icon:'✂️',c:'#F5891F',x:20.0,y:28.0,when:'오후 2시 ~ 6시',
+ exp:{no:2,name:'체험부스존',icon:'✂️',c:'#F5891F',x:20.3,y:18.3,when:'오후 2시 ~ 6시',
   text:'원형 잔디밭 둘레를 따라 환경 체험부스 열여섯 곳이 1번부터 16번까지 늘어서 있어요.',booths:'exp'},
- play:{no:3,name:'놀이존',icon:'🪵',c:'#E53935',x:38.4,y:29.0,when:'오후 2시 ~ 6시',
+ play:{no:3,name:'놀이존',icon:'🪵',c:'#E53935',x:38.9,y:29.6,when:'오후 2시 ~ 6시',
   text:'부스에 둘러싸인 가운데 잔디밭에서 신나게 놀아요! 놀이는 옹달쌤과 함께하는 놀이카(세상놀이연구소)가 함께해요.',
   list:['버려진 나무로 망치질 목공 체험','종이상자로 탑 쌓기 · 집 짓기','세계 놀이 — 몰키, 링가링가, 딱지접기'],vids:1},
- market:{no:4,name:'에코 순환 마트 & 모모장',icon:'🧺',c:'#43B047',x:39.9,y:13.7,when:'오후 2시 ~ 3시',
+ market:{no:4,name:'에코 순환 마트 & 모모장',icon:'🧺',c:'#43B047',x:40.2,y:12.2,when:'오후 2시 ~ 3시',
   text:'위쪽 작은 원형광장에서 어린이 장터가 열려요. 구좌읍 모모장도 같은 자리에서 함께 열립니다.',
   list:['어린이 벼룩시장 — 아껴 쓰고 나눠 써요 (참가 문의 010-2220-8206 김녕행복한지역아동센터)','모모장 — 업사이클링·친환경 제품 위주','보물찾기 환경순환장터 — 중고 물품 물물교환']},
- art:{no:5,name:'미술체험존',icon:'🎨',c:'#20A39E',x:50.0,y:25.0,when:'오후 2시 ~ 6시',
+ art:{no:5,name:'미술체험존',icon:'🎨',c:'#20A39E',x:52.8,y:21.5,when:'오후 2시 ~ 6시',
   text:'부스 링 오른편에서 모두가 함께 그리는 미술 활동을 해요.',
   list:['알록달록 분필 그림터 — 친환경 분필로 바닥에 그려요','긴 천에 다 같이 그림 그리기','큰 붓으로 대형 초상화 그리기','병뚜껑 곱슬머리 만들기']},
- exhibit:{no:6,name:'전시존',icon:'🖼',c:'#26A6DB',x:56.8,y:58.1,when:'오후 2시 ~ 6시',
+ exhibit:{no:6,name:'전시존',icon:'🖼',c:'#26A6DB',x:57.2,y:59.0,when:'오후 2시 ~ 6시',
   text:'돌바닥 길을 따라 삼각 큐브 전시대가 늘어서요. 어린이 도슨트가 직접 설명해 줘요!',
   list:['업사이클링 작품 · 환경 사생대회 그림','수업 장면 흑백사진을 줄에 앞뒤로 걸어 전시해요','큐브는 들락날락 드나들 수 있는 작은 놀이터이기도 해요']},
- stage:{no:7,name:'공연무대존',icon:'🎤',c:'#6E7887',x:14.0,y:48.5,when:'오후 1시 ~ 6시',
+ stage:{no:7,name:'공연무대존',icon:'🎤',c:'#6E7887',x:16.9,y:49.0,when:'오후 1시 ~ 6시',
   text:'야외공연장이 메인무대예요. 오프닝과 골든벨, 영화가 모두 이곳에서 열려요.',
   list:['오후 1시 ~ 2시 · 오프닝 — 사생대회 시상 · 어린이 합창단 · 청소년 오케스트라','오후 4시 ~ 5시 · 도전! 환경 골든벨 (본부석 현장 접수)','오후 5시 ~ 6시 · 에코 시네마 「조수웅덩이 바다의 시작」 · 감독과의 대화']},
- hq:{no:8,name:'본부석',icon:'🚩',c:'#965C3C',x:26.0,y:47.5,when:'오후 1시 ~ 6시',
+ hq:{no:8,name:'본부석',icon:'🚩',c:'#965C3C',x:29.2,y:48.6,when:'오후 1시 ~ 6시',
   text:'입구와 무대 사이에 있어요. 궁금한 게 있거나 도움이 필요하면 오세요.',
   list:['종합 안내 · 체험 카드와 스탬프 투어','제주시정신건강복지센터 생명사랑 캠페인','환경 골든벨 참가 현장 접수','방명록 — 얼굴 그리고 감상 남기기','행사 운영과 안전 관리 · 잃어버린 물건'],booths:'hq'},
- coffee:{no:9,name:'커피트럭',icon:'☕',c:'#78503C',x:39.5,y:43.0,when:'오후 2시 ~ 6시',
+ coffee:{no:9,name:'커피트럭',icon:'☕',c:'#78503C',x:40.8,y:43.4,when:'오후 2시 ~ 6시',
   text:'입구 옆에 커피트럭이 섭니다.',
   list:['플로베 — 텀블러·친환경 컵에 담아 주는 커피와 음료']},
- rest:{no:10,name:'휴식존',icon:'⛺',c:'#E6BE14',x:36.9,y:65.0,when:'언제든지',
+ rest:{no:10,name:'휴식존',icon:'⛺',c:'#E6BE14',x:44.0,y:63.5,when:'언제든지',
   text:'가운데 나무 그늘이에요. 돗자리를 깔고 쉬어 가요.',
   list:['폐현수막으로 만든 만국기','폐린넨 가랜드와 작은 작품 전시']},
- food:{no:11,name:'음식체험존',icon:'🥪',c:'#494AC4',x:33.8,y:75.9,when:'오후 2시 ~ 6시',
+ food:{no:11,name:'음식체험존',icon:'🥪',c:'#494AC4',x:29.5,y:67.5,when:'오후 2시 ~ 6시',
   text:'아래쪽 천막 줄이 먹거리 체험존이에요(19~25번). 직접 만들어서 먹는 체험이고 모두 무료예요.',booths:'food'}
 };
 /* 프로그램 카드 상세 */
@@ -1007,7 +1007,7 @@ var PROG={
     openDlg(h,p.c);
   }
   function goZone(id){
-    var el=document.querySelector('.hot[data-z="'+id+'"]'); if(!el) return;
+    var el=document.querySelector('.pin[data-z="'+id+'"]'); if(!el) return;
     var box=document.querySelector('.mapscroll');
     document.getElementById('map').scrollIntoView({behavior:'smooth',block:'start'});
     if(box&&box.scrollWidth>box.clientWidth){ box.scrollLeft=Math.max(0, el.offsetLeft - box.clientWidth/2); }
@@ -1020,8 +1020,9 @@ var PROG={
   var pins=document.getElementById('pins'), zl=document.getElementById('zlist');
   Object.keys(ZONES).forEach(function(id){
     var z=ZONES[id];
-    var b=document.createElement('button'); b.type='button'; b.className='hot'; b.dataset.z=id;
-    b.style.left=z.x+'%'; b.style.top=z.y+'%'; b.style.width='9%'; b.style.height='6%'; b.style.setProperty('--c',z.c);
+    var b=document.createElement('button'); b.type='button'; b.className='pin'; b.dataset.z=id;
+    b.style.left=z.x+'%'; b.style.top=z.y+'%'; b.style.setProperty('--c',z.c);
+    b.innerHTML='<i>'+z.icon+'</i>'+esc(z.name);
     b.setAttribute('aria-label',z.name+' 자세히 보기'); b.onclick=function(){ openZone(id); }; pins.appendChild(b);
     var c=document.createElement('button'); c.type='button'; c.className='zbtn'; c.style.setProperty('--c',z.c);
     c.innerHTML='<i>'+z.icon+'</i>'+esc(z.name); c.onclick=function(){ goZone(id); }; zl.appendChild(c);
